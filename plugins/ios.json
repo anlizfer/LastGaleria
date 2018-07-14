@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-camera": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+    }
+  }
+}

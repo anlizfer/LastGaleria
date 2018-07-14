@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="assets/jquery_mobile/jquery.mobile-1.4.5.min.css" />
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        
+
+        <script src="assets/jquery/jquery-1.12.0.min.js"></script>
+        <script src="assets/jquery_mobile/jquery.mobile-1.4.5.min.js"></script>
+    
+
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC_ybvqNKXVyplkwSRS9kG6ZSWJJ7lRS-I&signed_in=true&libraries=adsense&sensor=true&language=es"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Galeria Inmobiliaria</title>
+
+        
+        <link rel="stylesheet" href="paginador/simplePagination.css" />
+
+        
+        <!--<link rel="stylesheet" type="text/css" href="slide/css/component.css" />-->
+        <script src="slide/js/modernizr.custom.js"></script>
+
+        <style type="text/css">
+        *{
+          text-shadow: none !important;  
+        }
+            .bar-sup-principal{
+                width: 100%;
+                padding: 0px 0px;
+                background-color: #000; 
+            }
+            .titulo_page{
+                font-size: 18px;
+                text-shadow: none !important;
+                color: #fff;
+                margin: 0px;
+                padding: 0px;
+                font-weight: 200;
+                margin-top: 14px;
+            }
+
+            .btn-right{
+                width: 100%;
+                height: 50px;
+                margin: 0px;
+                background-color: #000 !important;
+                border-radius: 0px;
+                text-align: right !important;
+                text-shadow: none !important;
+                color: #fff !important;
+                border: none !important;
+                font-weight: 200;
+            }
+            .padding-container{
+                padding: 25px;
+            }
+
+            .input-control{
+                background-color: #fff !important;
+                box-shadow: none;
+                font-weight: 300;
+                font-size: 17px;
+            }
+
+            .margin-top-10{
+                margin-top:10px; 
+            }
+            .margin-top-15{
+                margin-top:15px; 
+            }
+            .margin-top-20{
+                margin-top:20px; 
+            }
+
+            .btn-negro{
+                padding: 5px 10px;
+                background-color: #000 !important;
+                color: #fff !important;
+                border-radius: 5px !important;
+                width: auto !important;
+                text-shadow: none !important;
+                font-weight: 200;
+            }
+            .btn-transparent{
+                padding: 5px 10px;
+                background-color: transparent !important;
+                font-size: 13px;
+                border: none !important;
+                color: #929292 !important;
+                width: auto !important;
+                box-shadow: none;
+                font-family: "arial";
+                font-weight: 200;
+                text-shadow: none !important;
+                text-decoration: underline !important;
+            }
+            .btn-redessociales{
+                width: 100%  !important;
+                border-radius: 5px  !important;
+                border:1px solid #ccc  !important;
+                text-align: left;
+                color: #929292  !important;
+                padding: 7px 10px;
+                background-color: #eaeaea !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                font-weight: 200;
+            }
+            .h3-page{
+                font-size: 15px;
+                font-weight: 200;
+                color: #999;
+                text-align: center;
+                margin: 0px;
+            }
+            .btn-amarillo{
+                width: 100% !important;
+                font-size: 22px !important;
+                font-weight: 500 !important;
+                color: #010001 !important;
+                background-color: #f8ea26 !important;
+                padding: 7px 5px;
+                border:none !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                text-align: center;
+            }
+
+            .texto-gris-app{
+                font-size: 13px;
+                color: #ccc;
+                text-align: center;
+            }
+
+            .subtititulo{
+                font-size: 17px !important;
+                text-align: center;
+            }
+
+            .p-galeria{
+                color: #929292;
+                text-align: center;
+            }
+
+            .btnmenuprincipal{
+                width: 100%;
+
+            }
+
+            .nombre-usuario-registrado{
+                color: #fff;
+                margin-top: 13px;
+                float: right;
+            }
+
+            .panel-botones-ingreso{
+                text-align: right;
+            }
+
+            .btnpanelsuperior{
+                float: right;
+                width: 30px;
+                margin-top: 7px;
+                margin-left: 8px;
+
+            }
+
+            .contain-inmuebles{
+                width: 100%; margin-top: 10px; float: left;
+            }
+
+            .contain-principal-inmuebles{
+                width: 100%; margin-top: 10px; float: left;   
+            }
+
+            .btngaleria{
+                width: 30px; height: 30px; border: 1px solid #999; border-radius: 3px; 
+            }
+
+            .item-menu{
+                width: 100%; height:220px; border: 1px solid #ccc; border-radius:5px; background: #fff; margin-bottom: 20px;
+            }
+
+            .image-item-menu{
+                width: 100%; height: 160px; background-color: #ccc; border-radius: 4px 4px 0px 0px;  position:relative; background-size:cover; 
+            }
+
+            .precio-inmueble{
+                width: 100%; background-color: #f8ea26; padding: 5px;   border-radius: 0px 4px 0px 3px; text-align: right;
+            }
+            .footer-item{
+                width: 100%; padding-left: 10px; background-color: rgba(0,0,0,0.7); position: absolute; bottom: 0px;
+            }
+            .icon-item{
+                width: 25px; float: left;
+            }
+            .label-item{
+                color:#fff;float: left; margin-top: 2px; margin-right: 10px;  margin-left: 3px;
+            }
+
+            .titulo-item-menu{
+                margin-top: 4px; margin-bottom: 1px;  margin-left: 9px; font-size: 13px;
+            }
+
+            .subtitulo-item-menu{
+                margin-left: 9px; margin-bottom: 0px; font-weight: 200;
+            }
+            .codigo-item-menu{
+                margin-left: 9px;  margin-bottom: 0px; font-weight: 400; font-size: 12px;
+            }
+
+            .icon-compartir{
+                width: 30px;     float: right;  margin-right: 7px; margin-top: 10px;
+            }
+
+            .head-inmuebles{
+                width: 100%; 
+                float: left; 
+                text-align: center; 
+                padding: 5px 0px 0px 0px; 
+                background-color: #000;
+            }
+
+            .head-acerca{
+                width: 100%; 
+                float: left; 
+                text-align: center; 
+                padding: 20px 0px 55px 0px;
+                background-color: #000;
+                margin-bottom: 20px;
+            }
+
+
+            .btn-filtro-tipo-izq{
+                border-radius: 7px 0px 0px 0px !important;   
+                padding-top: 10px;   
+                padding-bottom: 10px; 
+                font-weight: bold;
+            }
+
+            .btn-filtro-tipo-der{
+                border-radius: 0px 7px 0px 0px !important;   
+                padding-top: 10px;   
+                padding-bottom: 10px; 
+                font-weight: bold;
+            }
+            .btn-filtro-tipo-activo{
+                background-color: #f8ea26 !important; 
+            }
+
+            .lbl-busqueda-avanzada{
+                float: left; color: #999; margin-top: 5px; font-weight: 300; font-size: 14px; margin-left: 5px; 
+            }
+
+            #txtbuscarinmueble{
+                border-radius: 0px 0px 7px 7px; margin-top: -5px; font-size: 14px;
+            }
+
+            .btnfavorito{
+                float: left;
+                width: 30px;
+                height: 30px;
+                background-image: url(assets/img/boton_corazon.png);
+                background-position: center;
+                background-size: contain;
+            }
+
+            .btnfavorito-activo{
+                background-image: url(assets/img/boton_corazon_rojo.png);
+            }
+
+            .contain-map{
+                width: 100%;
+                float: left;
+                height: 250px;
+                border:1px solid #ccc;
+                margin-bottom: 20px;
+                display: none;
+            }
+
+            .btn-compartir-redes{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .page-link{
+                color: #000 !important;
+            }
+            .current{
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+    color: #000;
+    font-weight: bold;
+    background-color: #f8ea26;
+    margin-right: 2px;
+    height: 25px;
+    margin-bottom: 5px;
+
+            }
+
+        </style>
+
+
+
+    </head>
+    <body>
+
+    <!-- MENSAJES  -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="video-inmueble">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">VIDEO</h4>
+          </div>
+          <div class="modal-body">
+            
+
+
+            <div class="embed-responsive embed-responsive-16by9" id="video-youtube-embed">
+              
+             
+            </div>
+
+            
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- FIN -->
+
+
+
+    <!-- POPUP TERMINOS Y CONDICIONES  -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-terminos">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content"> 
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">POLÍTICAS DE DATOS</h4>
+          </div>
+          <div class="modal-body">
+            
+            <p>
+                La Política de tratamiento de la información personal es el documento exigido por la Ley 1581 de 2012 y el Decreto 1377 de 2013 para comunicar a los titulares de datos personales las directrices y lineamientos bajo los cuales será tratada y protegida su información, asegurando el respeto de los principios y normas contenidas en la legislación vigente aplicable.
+            </p>  
+
+
+
+            <p>
+                En cumplimiento del artículo 13 del decreto referido, esta política explica el tipo de información que GALERIA INMOBILIARIA S.A.S. (que en el presente se podrá denominar “la inmobiliaria”) recolecta, almacena, usa, circula y suprime, las finalidades de su tratamiento y las pautas que serán aplicadas para garantizar el adecuado tratamiento de su información personal. 
+            </p>  
+
+            <p>
+                Para saber más descargar formato PDF  <a class="btn btn-warning" href="https://www.galeriainmobiliaria.com.co/media/files/POLITICADEDATOS.pdf" target="_blank" >VER</a>
+            </p>  
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- FIN -->
+
+
+
+    <!-- MENSAJES  -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="mensajes-galeria">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="titulo-mensaje"></h4>
+          </div>
+          <div class="modal-body">
+            <p id="cuerpo-mensaje"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- FIN -->
+
+
+
+     <!-- COMPARTIR  -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="compartir-inmueble">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"> Compartir</h4>
+          </div>
+          <div class="modal-body">
+             <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-compartir-redes" onclick="compartir_tipo(1)">WHATSAPP</button>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-compartir-redes" onclick="compartir_tipo(2)">EMAIL</button>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-compartir-redes" onclick="compartir_tipo(3)">FACEBOOK</button>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-compartir-redes" onclick="compartir_tipo(4)">TWITTER</button>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <button class="btn btn-success btn-compartir-redes" onclick="compartir_tipo(5)">GOOGLE +</button>
+                    </div>
+
+                </div>
+                 
+             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- FIN -->
+
+
+    
+    <!-- PAGINA 1 LOGIN -->
+    <div data-role="page" id="pagina-login" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h2 class="titulo_page">Iniciar Sesión</h2>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <button class="btn-right" id="btnomitir">Omitir</button>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+
+            <div id="contain-log" style="display: none;">
+                <center>
+                    
+                    <h1 id="nombre-login"></h1>
+                    <h4>Tu sesión está iniciada</h4>
+
+                    <button class="btn-negro" id="btncontinuar">CONTINUAR</button>
+
+                    <div class="row">
+                    <div class="col-md-12">
+                        <hr style="    border: 1px solid #dadada; ">
+                    </div>
+                </div>
+
+                </center>
+                
+            </div>
+
+            <form id="form-login">
+                <div class="row" >
+                    <div class="col-md-12">
+                        <input type="email" class="form-control input-control" name="" placeholder="Email" id="txtemail_login" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="password" class="form-control input-control" name="" placeholder="Contraseña" id="txtpassword_login" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" id="btn-ingresar" class="pull-right btn-negro" value="INGRESAR">
+                    </div>
+                </div>
+
+            </form>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="pull-right btn-transparent" onclick="ir_lost_pass()">Olvidaste tu Contraseña</button>
+                </div>
+            </div>
+            
+            <!--
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Facebook</button>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Twitter</button>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Google</button>   
+                </div>
+            </div>
+
+            -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <hr style="    border: 1px solid #dadada; ">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="h3-page">No estás Registrado?</h3>
+                </div>
+            </div>
+
+            <div class="row margin-top-15">
+                <div class="col-md-12">
+                    <button class="btn-amarillo" onclick="ir_registro()">REGISTRARSE</button>
+                </div>
+            </div>
+
+            <div class="row margin-top-15">
+                <div class="col-md-12">
+                    <p class="texto-gris-app">Al registrarte, aceptas nuestras <br />Condiciones y Políticas de Privacidad</p>
+                </div>
+            </div>
+
+
+            
+            
+
+
+        </div>
+    </div>
+    <!-- fin -->
+
+    <!-- PAGINA 2 Lost Password -->
+    <div data-role="page" id="pagina-lost-password" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; " id="btnatras_lostpassword">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+            <div class="row">
+                <div class="col-md-12 margin-top-20" >
+                    <h2 class="subtititulo">Olvidaste tu Contraseña</h2>
+                    <p class="p-galeria">Ingresa tu correo electrónico y recibe <br />las instrucciones de recuperación</p>
+                </div>
+            </div>
+            <form id="form-lostpassword">
+                <div class="row">
+                    <div class="col-md-12 margin-top-20" >
+                        <input type="email" class="form-control input-control" id="txtemail_lostpassword" placeholder="Email" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 margin-top-25" >
+                        <input class="btn-amarillo" type="submit" id="btnenviar_lostpassword" value="ENVIAR">
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-12 margin-top-25" >
+                    <center>
+                         <button class="btn-transparent" id="btnirinicion_lostpassword" onclick="ir_lost_pass()">Ir a Iniciar Sesión</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN -->
+
+    <!-- PAGINA 3 Verificar Código -->
+    <div data-role="page" id="pagina-verificar-code" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+
+            <form id="form-verificar">
+                <div class="row">
+                    <div class="col-md-12 margin-top-20" >
+                        <h2 class="subtititulo">Verifica tu Código</h2>
+                        <p class="p-galeria">Ingresa el código de 4 dígitos<br />que se envió a tu correo</p>
+                    </div>
+                </div>
+                <div class="row" style="    padding-left: 47px;  padding-right: 47px;">
+                    <div class="col-xs-3 margin-top-20" style="padding-right: 5px; padding-left: 5px; text-align: center;" >
+                        <input type="number" class="form-control input-control" id="txtcode1" style="text-align: center;" required  maxlength="1">
+                    </div>
+                    <div class="col-xs-3 margin-top-20" style="padding-right: 5px; padding-left: 5px; text-align: center;"  >
+                        <input type="number" class="form-control input-control" id="txtcode2" style="text-align: center;" required  maxlength="1">
+                    </div>
+
+                    <div class="col-xs-3 margin-top-20" style="padding-right: 5px; padding-left: 5px; text-align: center;"  >
+                        <input type="number" class="form-control input-control" id="txtcode3" style="text-align: center;" required  maxlength="1">
+                    </div>
+
+                    <div class="col-xs-3 margin-top-20" style="padding-right: 5px; padding-left: 5px;"  >
+                        <input type="number" class="form-control input-control" id="txtcode4" style="text-align: center;" required  maxlength="1">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 margin-top-25" >
+                        <input type="submit" class="btn-amarillo" value="VERIFICAR CÓDIGO">
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-12 margin-top-25" >
+                    <center>
+                         <button class="btn-transparent" id="btnreenviar">Reenviar</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN -->
+
+
+    <!-- PAGINA 4 Registro -->
+    <div data-role="page" id="pagina-registro" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+            <form id="form-registro">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">Registro Galeria Inmobiliaria</h2>
+                        <p class="p-galeria">Registrate ahora solo necesitas un par de pasos</p>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control"  placeholder="* Nombre " required id="txtnombre_registro">
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control"  placeholder="* Apellidos" required id="txtapellido_registro">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="email" class="form-control input-control"  placeholder="* Correo Electrónico" required id="txtemail_registro">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="password" class="form-control input-control" placeholder="* Contraseña" required id="txtpassword_registro">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="number" class="form-control input-control" placeholder="Número Telefónico" id="txttelefono_registro">
+                    </div>
+                </div>
+
+                
+
+
+
+              
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr style="    border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
+                    </div>
+                </div>
+                <!--
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn-redessociales">Registrate con Facebook</button>   
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn-redessociales">Registrate con Twitter</button>   
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn-redessociales">Registrate con Google</button>   
+                    </div>
+                </div>
+
+            -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="checkbox" name="" required><span style="margin-left: 44px; margin-top: 4px; float: left;"> Aceptar  <a href="#"  data-toggle="modal" data-target="#modal-terminos" > Términos y Condiciones </a></span>
+                    </div>
+                </div>
+
+                  <div class="row">
+                    <div class="col-md-12" >
+                        <button class="btn-amarillo" id="btnregistrar">REGISTRAR</button>
+                    </div>
+                </div>
+
+            </form>
+          
+        </div>
+    </div>
+    <!-- FIN -->
+
+
+    <!-- PAGINA 4 UPDATE USUARIO -->
+    <div data-role="page" id="pagina-registro-update" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+            <form id="form-registro-update">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">USUARIO</h2>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control"  placeholder="* Nombre " required id="txtnombre_registro_update">
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control"  placeholder="* Apellidos" required id="txtapellido_registro_update">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="email" class="form-control input-control"  placeholder="* Correo Electrónico" required id="txtemail_registro_update">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="password" class="form-control input-control" placeholder="Contraseña" id="txtpassword_registro_update">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="number" class="form-control input-control" placeholder="Número Telefónico" id="txttelefono_registro_update">
+                    </div>
+                </div>
+
+                
+
+
+
+              
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr style="    border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
+                    </div>
+                </div>
+               
+                  <div class="row">
+                    <div class="col-md-12" >
+                        <button class="btn-amarillo" id="btnregistrar_update">GUARDAR CAMBIOS</button>
+                    </div>
+                </div>
+
+            </form>
+          
+        </div>
+    </div>
+    <!-- FIN -->
+    
+
+    <!-- PAGINA 5 Menu Principal -->
+    <div data-role="page" id="menu-principal" class="pg-indv" style="background-color: #000 !important;">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-8 panel-botones-ingreso">
+                       
+                       <a href="#" class="btnpanelsuperior" id="btnmenu_ayuda"><img src="assets/img/boton_interrogacion.png" style="width: 30px;"></a>
+                       <a href="#" class="btnpanelsuperior  info-login" id="btnmenu_usuario2"><img src="assets/img/boton_usuario.png" style="width: 30px;"></a>
+                       <span class="nombre-usuario-registrado info-login"></span>
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+            <center>
+                <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:250px;">
+            </center>
+            
+            <div class="container" style="margin-top: 35px;">
+                <div class="row">
+                    <div class="col-xs-6" style="text-align: center;">
+                        
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_inmueble">
+                            <img src="assets/img/menu_principal_inmuebles.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                    
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_convenios">
+                            <img src="assets/img/menu_principal_convenios.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_acercagaleria">
+                            <img src="assets/img/menu_principal_acerca_galeria.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                    
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_usuario">
+                            <img src="assets/img/menu_principal_usuario.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+
+                    </div>
+
+                    
+                </div>
+
+                
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- FIN -->
+
+
+    <!-- PAGINA 6 Listado Inmuebles -->
+    <div data-role="page" id="pagina-listado-inmueble" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >
+                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones"><img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;"></a>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="head-inmuebles">
+            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+            <div class="container padding-container" style="padding-bottom: 0px;">
+                <div class="row">
+                    <div class="col-xs-6" style="padding-right: 0px;">
+                        <button class="btn btn-warning btn-filtro-tipo-izq btn-filtro-tipo-activo" id="btninmuebleizq">
+                            ARRIENDO
+                        </button>
+                    </div>
+                    <div class="col-xs-6" style="padding-left: 0px;">
+                        <button class="btn btn-warning btn-filtro-tipo-der" id="btninmuebleder">
+                            VENTA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
+            <form>                
+                <div class="row">
+                    <div class="col-xs-10" style="padding-right: 0px;" >
+                        <input type="text" class="form-control input-control"  id="txtbuscarinmueble" placeholder="Inmueble por Código">
+
+                    </div>
+                    <div class="col-xs-2"  style="padding-left: 0px;"  >
+                        <button class="btn btn-default" id="btnbuscarinmueble" style="height: 38px; width: 38px; background-color: #f8ea26 !important;     margin-top: 0px !important;" type="button" >
+                            <img src="assets/img/icono-buscar.png" style="width: 17px;">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-7" >
+                        <a class="btngaleria" href="#" style="float:left;" id="btnbusquedavanzada1">
+                            <img src="assets/img/boton_filtro.png" style="width: 30px; ">                             
+                        </a>
+                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>
+                    </div>
+
+                    <div class="col-xs-5" style="text-align: right;" >
+                        
+                        <a class="btngaleria " href="#" style="margin-left: 10px;float: right; " id="btnlocalizadorinmueble">
+                            <img src="assets/img/boton_localizador.png" style="width: 30px; ">                             
+                        </a>
+
+                        <a class="btngaleria btn-filtro-tipo-activo" href="#" style="margin-left: 10px;float: right;  "  id="btnlistadoinmueble">
+                            <img src="assets/img/boton_menu.png" style="width: 30px; ">                             
+                        </a>
+
+                        
+                    </div>
+
+                </div>
+            </form>       
+            
+            <div class="contain-principal-inmueble">
+                
+                <div class="contain-inmuebles" id="listado-imuebles-gps">
+                    <div id="mapa-inmuebles" class="contain-map">
+                        
+                    </div>
+                </div>
+
+
+                <h5>Inmuebles</h5>
+                
+                <div class="contain-inmuebles" id="listado-imuebles">
+
+                    <!-- FIN ITEM INMUEBLE -->
+                    
+
+                    <!-- FIN ITEM INMUEBLE -->
+                    
+                </div>
+                <ul id="pagination-demo" class="pagination-sm"></ul>
+
+                
+            </div>
+
+        </div>
+    </div>
+    <!-- FIN -->
+
+
+
+    <!-- PAGINA 7 Detalle Inmueble -->
+    <div data-role="page" id="pagina-detalle-inmueble" class="pg-indv">
+        
+        <div class="bar-sup-principal"  style="background-position: center; background-size: cover; height: 210px; position: relative; " id="galeria-detalle">
+            <div id="content_slider" style="height: 210px; position: relative; width: 100%;">
+                
+            </div>
+
+
+            <div class="container" style="width: 100%; position: absolute; top: 0px;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;  background-color: transparent !important;   padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >
+                        <a href="#" class="btnpanelsuperior" id="btncompartir_detalle"><img src="assets/img/boton_compartir_gris.png" style="width: 30px; margin-top: 3px;"></a>
+                        <a href="#" class="btnfavorito" id="btn-favorito" style="    margin-top: 10px; float:right;"></a>
+                    </div>
+                </div>
+            </div>    
+
+
+            <div class="footer-detalle" style="width: 100%; padding: 5px; position: absolute; z-index: 5; bottom: 0px; left: 0px;">
+                <a href="#" id="btnvideo">
+                    <img src="assets/img/boton_youtube.png" style="width: 40px; margin-left: 10px;">
+                </a>                      
+            </div>
+
+
+        </div>
+
+       
+
+        <div class="container" style="padding: 10px; padding-right: 0px;">
+            
+            <div class="row" style="padding: 0px; margin: 0px;">
+                <div class="col-xs-7" style="padding: 0px; margin: 0px;" >
+                    <p style="font-weight: bold; margin: 0px;"><span id="tipocontrato_indiv"></span> / <span id="tipoinmueble_indiv"></span> <br /><span id="ciudad_indiv"></span></p>
+                    <p style="font-size: 12px; font-weight: 200; margin-top: 0px;"><span id="barrio_indiv"></span> - Código: <span id="codigo_inmueble_indiv"></span></p>
+                </div>
+                <div class="col-xs-5" style="padding: 0px; margin: 0px;">
+                    <div style="float: right; padding: 5px; background-color: #f8ea26; font-weight: bold; font-size: 18px; margin-top: 11px; width: 100%;">
+                        <span style="float: right;" id="valor_canon_indiv"></span>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+
+        
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-top:1px solid #828282; border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+                <div class="row">
+                    <div class="col-xs-12" style="padding: 2px 0px;" id="items_inmueble_indiv">
+                        
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        
+         <div class="container" style=" margin-top: 15px; float: left;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p><strong>Valor Administración: </strong><span id="administracion_indiv"></span></p>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-top: 5px; float: left;">
+                <div class="col-xs-12">
+                    <p style="text-align: justify;"><strong>Para Destacar: </strong>
+                        <span id="descripcion_inmueble"></span>
+                    </p>
+                </div>
+
+            </div>
+         </div>
+        
+
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+            </div>
+        </div>
+
+         
+
+         <div class="container" style=" margin-top: 15px; float: left; width: 100%;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p><strong>Ubicación: </strong></p>
+                </div>
+
+            </div>
+
+        </div>
+
+         <div class="container" style=" margin-top: 15px; float: left; width: 100%;">
+                <div class="col-xs-12">
+                    <div class="contain-map" id="mapa-indivual" style="display: block;">
+                        
+                    </div>
+                </div>
+         </div>
+
+
+
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+            </div>
+        </div>
+
+         <div class="container" style="float: left; ">
+            <div class="row">
+                <div class="col-xs-6" style="padding-right: 2px;">
+                    <button class="btn-amarillo" type="button" id="btn-llamar-agente" style="white-space: normal; font-size: 16px !important; text-align: left;">
+                        LLAMAR UN AGENTE
+                    </button>
+                </div>
+
+                <div class="col-xs-6" style="padding-left: 2px;">
+                    <button class="btn-amarillo" type="button" id="btn-llamar-agente" style="white-space: normal; font-size: 16px !important;  text-align: left;">
+                        SOLICITAR MÁS INFORMACIÓN
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        
+
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+            </div>
+        </div>
+        
+        
+
+    </div>
+    <!-- FIN  PAGINA 7 -->
+
+
+    
+    <!-- PAGINA 8 AYUDA -->
+    <div data-role="page" id="pagina-ayuda" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+           
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">AYUDA</h2>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h4>1. Como iniciar sesión</h4>
+                        <p style="text-align: justify;">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti quas nobis quaerat pariatur animi asperiores sunt voluptates non facere, ullam recusandae harum tenetur. Nulla a quos repellendus ex, architecto ullam!
+                        </p>
+
+                        <h4>2. Como Regisrarse</h4>
+                        <p style="text-align: justify;">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti quas nobis quaerat pariatur animi asperiores sunt voluptates non facere, ullam recusandae harum tenetur. Nulla a quos repellendus ex, architecto ullam!
+                        </p>
+                    </div>
+                </div>
+
+               
+
+            
+          
+        </div>
+    </div>
+    <!-- FIN -->
+
+
+
+     <!-- PAGINA 9 GALERIA INMOBILIARIA -->
+    
+    <div data-role="page" id="pagina-galeria-inmobiliaria" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >
+                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones"><img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;"></a>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="head-acerca">
+            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+            
+        </div>
+
+        <div class="container padding-container" style="position: relative; float: left;  padding-top: 5px;">
+
+                <a href="#"  class="btncontacto">
+                    <img src="assets/img/boton_mensaje.png" style="width: 60px; position: absolute;     top: -56px;  right: 12px;">
+                </a>
+                
+
+           
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">QUIENES SOMOS?</h2>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align: justify;">
+                            Galería Inmobiliaria fue creada en el año 1994, aprovechando la experiencia de sus fundadores en el área de la construcción y profesiones afines a la finca raíz y la administración. Nació con dedicación exclusiva a las ventas, pero luego de un tiempo, en el año de 1.997 incursiono en la promoción y administración de inmuebles en arrendamiento. A partir de Septiembre del año 2010 se convirtió a SAS con Nit. 900383855-8
+                        </p>
+
+                        <p style="text-align: justify;">
+                            Se encuentra afiliada a la Lonja de Propiedad Raíz de Santander y trabaja de la mano de las principales aseguradoras y afianzadoras.
+                        </p>
+
+                        <p style="text-align: justify;">
+                            El estricto cumplimiento de nuestras obligaciones con los propietarios, la satisfacción de la gran mayoría de nuestros  arrendatarios, un equipo humano comprometido y conocedor de sus funciones, el uso de la tecnología, una planta física acogedora, entre otros, ha sido fundamental para que nuestros clientes perciban la calidad de nuestros servicios y nos ubiquen en un lugar de privilegio, catalogándonos como una de las oficinas de mayor crecimiento en la ciudad. Igualmente lo ha hecho Star For Quality quien nos han otorgado una mención especial en la Convención International en Ginebra {Suiza] junto a 57 líderes de distintas nacionalidades del mundo, incluidos tres Latinoamericanos. Es por eso que estamos muy agradecidos y con una decisión firme de convertir a Galería Inmobiliaria en una compañía competitiva como la desean nuestros clientes. Para ello contamos con lo más importante, que es la confianza que nos brindan quienes utilizan nuestros servicios y el deseo nuestro para seguir mejorando día tras día.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                 <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">MISIÓN</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align: justify;">
+                           Ofrecer seguridad, confianza y respaldo a nuestros clientes, por medio de la intermediación en negocios inmobiliarios.
+                        </p>
+
+                      
+
+                    </div>
+                </div>
+
+
+
+                 <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">VISIÓN</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align: justify;">
+                           Para el año 2020, ser reconocidos como la inmobiliaria líder en confiabilidad, servicio y atención al cliente en la ciudad de Bucaramanga y su área metropolitana.
+                        </p>
+
+                      
+
+                    </div>
+                </div>
+
+
+                 <div class="row margin-top-15">
+                    <div class="col-md-12">
+                        <button class="btn-amarillo btncontacto" >CONTÁCTENOS</button>
+                    </div>
+                </div>
+
+
+
+               
+
+            
+          
+        </div>
+    </div>
+    <!-- FIN -->
+
+
+
+    <!-- PAGINA 10 Contacto -->
+    <div data-role="page" id="pagina-contacto" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+           
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">CONTÁCTENOS</h2>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12" >
+                       
+
+                          <form id="form-contacto">
+                                                      
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <input type="text" class="form-control input-control"  placeholder="* Nombre " required id="txtnombre_contacto">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <input type="email" class="form-control input-control"  placeholder="* Correo Electrónico" required id="txtemail_contacto">
+                                </div>
+                            </div>
+
+                           
+
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <input type="number" class="form-control input-control" placeholder="Número Telefónico" id="txttelefono_contacto">
+                                </div>
+                            </div>
+
+
+                             <div class="row">
+                                <div class="col-md-12" >
+                                    <textarea  class="form-control input-control" placeholder="Mensaje" id="txtmensaje_contacto"></textarea>
+                                </div>
+                            </div>
+
+                            
+
+
+
+                          
+
+                            
+                          
+                           
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <button class="btn-amarillo" id="btnenviar_contacto">ENVIAR MENSAJE</button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr style="border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
+                                    <img src="assets/img/boton_correo.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">gerencia@galeriainmobiliaria.com.co</span></a>   
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
+                                        <img src="assets/img/boton_telefono.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">PBX: (+57 7) 643 0034</span>
+                                    </a>   
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
+                                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">Carrera 36 # 54 - 142 (Cabecera)</span></a>   
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
+                                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">Calle 31a # 26 - 36 Local 2 (Cañaveral)</span>
+
+                                    </a>   
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn-redessociales" style=" width: 100%;     margin: .5em 0;     display: inline-block; background-color: #25D366 !important; color:#fff !important; text-align: center;     font-weight: 300; font-size: 25px;">
+                                       <img src="assets/img/icono_whatsapp.png" style=" width: 37px; position: absolute; left: 20px;"> 573187117655
+                                    </a>   
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <a  target="_blank" style=" width: 45px !important; margin: .3em 0; display: inline-block; text-align: center;     font-weight: 300; font-size: 25px; height: 45px !important;" href="https://twitter.com/Galeriainmo">
+                                        <img src="assets/img/icono_twitter.png" style="width: 45px;">
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a    target="_blank" style=" width: 45px !important; margin: .3em 0; display: inline-block; text-align: center;     font-weight: 300; font-size: 25px; height: 45px !important;" href="https://www.facebook.com/galeriainmobiliariasas">
+                                        <img src="assets/img/icono_facebook.png" style="width: 45px;">
+                                    </a>
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-12">
+                                    <hr style="border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-12">
+                                    <div id="mapa-galeria" class="contain-map" style="width: 100%; display: block;">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                      
+                    
+
+
+
+                    </div>
+                </div>
+
+               
+
+            
+          
+        </div>
+    </div>
+    <!-- FIN -->
+
+    <!-- PAGINA 12 Listado Notificaciones -->
+    <div data-role="page" id="pagina-listado-notificaciones" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                    </div>
+
+                    <div class="col-xs-4">
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container">
+           
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">NOTICIAS</h2>
+                    </div>
+                </div>
+
+                <div class="row" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+                </div>
+                
+                <div style="width: 100%;" id="listado-noticias">
+                    
+                
+                
+
+                </div>
+
+               
+
+            
+          
+        </div>
+    </div>
+    <!-- FIN -->
+    
+    
+
+
+
+    <!-- PAGINA 13 Listado Convenios -->
+    <div data-role="page" id="pagina-listado-convenios" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >
+                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones"><img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;"></a>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="head-inmuebles" style="padding-bottom: 32px;">
+            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+        </div>
+
+        <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
+            <form>                
+                <div class="row">
+                    <div class="col-xs-10" style="padding-right: 0px;" >
+                        <input type="text" class="form-control input-control"  id="txtbuscarconvenio" placeholder="Buscar Convenio">
+
+                    </div>
+                    <div class="col-xs-2"  style="padding-left: 0px;"  >
+                        <button class="btn btn-default" id="btnbuscarconvenio" style="height: 38px; width: 38px; background-color: #f8ea26 !important;" type="button" >
+                            <img src="assets/img/icono-buscar.png" style="width: 17px;">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-7" >
+                        <a class="btngaleria" href="#" style="float:left;">
+                            <img src="assets/img/boton_filtro.png" style="width: 30px; ">                             
+                        </a>
+                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>
+                    </div>
+
+                    <div class="col-xs-5" style="text-align: right;" >
+                        
+                        <a class="btngaleria " href="#" style="margin-left: 10px;float: right; " id="btnlocalizadorconvenio">
+                            <img src="assets/img/boton_localizador.png" style="width: 30px; ">                             
+                        </a>
+
+                        <a class="btngaleria btn-filtro-tipo-activo" href="#" style="margin-left: 10px;float: right; "  id="btnlistadoconvenio">
+                            <img src="assets/img/boton_menu.png" style="width: 30px; ">                             
+                        </a>
+
+                        
+                    </div>
+                </div>
+            </form>       
+            
+            <div class="contain-principal-inmueble">
+                
+                <div class="contain-inmuebles" id="listado-convenios-gps">
+                    <div id="mapa-convenios" class="contain-map">
+                        
+                    </div>
+                </div>
+
+
+                <h5>Convenios</h5>
+                
+                <div class="contain-inmuebles" id="listado-convenios">
+
+                </div>
+
+                
+            </div>
+
+        </div>
+    </div>
+    <!-- FIN -->
+
+        
+
+
+    <!-- PAGINA 7 Detalle Inmueble -->
+    <div data-role="page" id="pagina-detalle-convenio" class="pg-indv">
+
+        <div class="bar-sup-principal" style="background-image: url(assets/img/inmueble1.jpg); background-position: center; background-size: cover; height: 210px; position: relative;" id="galeria-convenio-detalle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;  background-color: transparent !important;   padding-left: 0px; ">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px;">
+                        </button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >                       
+                        <a href="#" class="btnfavorito" id="btn-favorito-convenio" style="    margin-top: 10px; float:right;"></a>
+                    </div>
+                </div>
+            </div>       
+            
+            
+
+        </div>
+
+        <div class="container" style="padding: 10px; padding-right: 0px;">
+            
+            <div class="row" style="padding: 0px; margin: 0px;">
+                <div class="col-xs-7" style="padding: 0px; margin: 0px;     margin-top: 18px;" >
+                    <p style="font-weight: bold; margin: 0px;" id="detalle_nombre_convenio"></p>
+                    <p style="font-size: 12px; font-weight: 200; margin-top: 0px;">Convenio: <span class="no_convenio"></span></p>
+                </div>
+                <div class="col-xs-5" style="padding: 0px; margin: 0px;">
+                    <div style="float: right; padding: 5px; background-color: #f8ea26; font-weight: bold; font-size: 18px; margin-top: 11px; width: 100%;">
+                        <span style="float: right;" id="precio_convenio"></span>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+
+        
+         <div class="container" style=" margin-top: 15px; float: left;">
+            
+            <div class="row" style="margin-top: 5px; float: left;">
+                <div class="col-xs-12">
+                    <p style="text-align: justify;"><strong>Descripción: </strong>
+                        <span id="descripcion_convenio"></span>
+                    </p>
+                </div>
+
+            </div>
+         </div>
+        
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+            </div>
+        </div>
+
+        <div class="container" style=" margin-top: 15px; float: left; width: 100%;">
+            <div class="row">
+                <div class="col-xs-12" style="text-align: center;">
+                     <div style="width: 280px; height: 280px; background-color:#ccc;  display: inline-block; margin-bottom: 20px;     margin-top: 20px;" id="qrconvenio">
+                         
+                     </div>
+
+                     <h3 style="font-weight: 200; margin:0px; margin-bottom: 25px;">Convenio No. <span class="no_convenio"></span></h3>
+                     <p>Muestra este Código QR en el establecimiento del convenio para hacerlo efectivo.</p>
+
+                    
+                    <button class="btn-amarillo" type="button" id="btn-llamar-convenio" style="white-space: normal; font-size: 16px !important; text-align: center; width: 100%;     font-weight: bold !important;">
+                        LLAMAR 
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="container" style=" margin-top: 15px; float: left; width: 100%;">
+             <div class="row">
+                <div class="col-md-12">
+                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
+                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> 
+                        <span id="direccion-convenio" style="display: inline-block; margin-left: 15px;">
+                            
+                        </span>
+                    </a>   
+                </div>
+            </div>
+        </div>
+
+        
+        
+
+         <div class="container" style=" margin-top: 15px; float: left; width: 100%;">
+                <div class="col-xs-12">
+                    <div class="contain-map" id="mapa-indivual-convenio" style="display: block;">
+                        
+                    </div>
+                </div>
+         </div>
+
+
+
+        <div style="padding: 0px 10px; width: 100%; float: left;">
+            <div class="container" style=" border-bottom: 1px solid #828282; padding-top: 0px; padding-bottom: 0px; ">
+            </div>
+        </div>
+
+
+    </div>
+    <!-- FIN  -->
+
+
+      <!-- PAGINA Busqueda Avanzada Inmuebes -->
+    <div data-role="page" id="pagina-busqueda-avanzada-inmuebles" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                    </div>
+
+                    <div class="col-xs-9" style="text-align: right;" >
+                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones"><img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;"></a>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
+            <form id="frmbuscaravanzado">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">Búsqueda Avanzada</h2>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-xs-12">
+                        <select form="form-control" id="operador_filtro_inmueble">
+                            <option value="1">ARRIENDO</option>
+                            <option value="5">VENTA</option>
+                            <option value="2">ARRIENDO / VENTA</option>
+                        </select>
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span>Departamento</span>
+
+                        <select form="form-control" id="depto_filtro_inmueble" onchange="cargar_ciudades_bydepto(this.value)"> 
+                            <option value="0"></option>                     
+                        </select>
+                        <span>Ciudad</span>
+                        <select form="form-control" id="ciudad_filtro_inmueble" onchange="cargar_zonas_byciudad(this.value)">
+                            <option value="0"></option>
+                        </select>
+
+                        <span>Zona</span>
+                        <select form="form-control" id="zona_filtro_inmueble" onchange="cargar_barrios_byzonas(this.value)">
+                            <option value="0"></option>
+                        </select>
+
+                        <span>Barrio</span>
+                        <select form="form-control" id="barrios_filtro_inmueble">     
+                        <option value="0"></option>                     
+                        </select>
+
+                        <span>Tipo Inmueble</span>
+                        <select form="form-control" id="tipoinmueble_filtro_inmueble">
+                           <option value="0"></option>
+                        </select>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span>Precio Mínimo</span>
+                        <input type="number" name="" id="preciominimo_filtro_inmueble" class="form-control" value="0" >
+                    </div>
+                    <div class="col-xs-6">
+                        <span>Precio Máximo</span>
+                        <input type="number" name="" id="preciomaximo_filtro_inmueble" class="form-control" value="0" > 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-4">
+                        <span>Habitaciones</span>
+                        <select form="form-control" id="habitaciones_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <span>Baños</span>
+                        <select form="form-control" id="banos_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                         <span>Garaje<span>
+                        <select form="form-control"  id="garaje_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn-amarillo" type="button" id="btn-filtrar-inmuebles" style="white-space: normal; font-size: 16px !important; text-align: center; width: 100%;     font-weight: bold !important;">
+                        FILTRAR 
+                    </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- FIN -->
+
+    
+    <script src="slide/js/dragdealer.js"></script>
+    <script src="slide/js/classie.js"></script>
+    <script src="slide/js/dragslideshow.js"></script>
+    <script type="text/javascript" src="paginador/jquery.twbsPagination.js"></script>
+    <script type="text/javascript" src="paginador/jquery.simplePagination.js"></script>
+    
+    <script type="text/javascript" src="js/index.js">
+
+
+    app.initialize();
+
+    </script>
+</body>
+</html>
+
