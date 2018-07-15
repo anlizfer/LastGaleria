@@ -39,10 +39,7 @@ var app = {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
   };
 
-  window.plugins.OneSignal
-    .startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e")
-    .handleNotificationOpened(notificationOpenedCallback)
-    .endInit();
+  window.plugins.OneSignal.startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e").handleNotificationOpened(notificationOpenedCallback).endInit();
 
         
     },
@@ -204,7 +201,9 @@ function ajax_login(email_log,password_log,tip){
 }
 
 
-
+function enviar_notificacion(){
+  window.plugins.OneSignal.startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e").handleNotificationOpened(notificationOpenedCallback).endInit().sendTag("tipo", "ES EDWARD PILAS GONOCOCO");
+}
 
 
 function ir_lost_pass(){  

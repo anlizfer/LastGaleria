@@ -34,6 +34,8 @@
 		9B3F33EF1EFD41248A438CB6 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE7E84A3B2D4CD498CA8148 /* CDVLocation.m */; };
 		6FBA7289598E4483BAF56EB0 /* CDVGlobalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A954D55A025B4ECA94552226 /* CDVGlobalization.m */; };
 		85E2DA3A9FF14DD4A4E8744E /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0519A664D44C49F0A9B4A5BC /* CDVInAppBrowser.m */; };
+		66EE7F6443BC4EC5A479E3E5 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A73942B7421428384823D5E /* CDVCapture.m */; };
+		FC4B221C3DA44845A7196F7D /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5290F61FC60147168D0199EE /* CDVCapture.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,9 @@
 		443748B144B04320A04B3978 /* CDVGlobalization.h */ = {isa = PBXFileReference; name = "CDVGlobalization.h"; path = "cordova-plugin-globalization/CDVGlobalization.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		0519A664D44C49F0A9B4A5BC /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		842842FB2666457A8E61B2CC /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		8A73942B7421428384823D5E /* CDVCapture.m */ = {isa = PBXFileReference; name = "CDVCapture.m"; path = "cordova-plugin-media-capture/CDVCapture.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		19088C7762514A9290B66733 /* CDVCapture.h */ = {isa = PBXFileReference; name = "CDVCapture.h"; path = "cordova-plugin-media-capture/CDVCapture.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		5290F61FC60147168D0199EE /* CDVCapture.bundle */ = {isa = PBXFileReference; name = "CDVCapture.bundle"; path = "CDVCapture.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +186,7 @@
 				8D1107310486CEB800E47090 /* GaleriaAppConvenios-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
 				7AFD8F100A404551B5E533EA /* CDVNotification.bundle */,
+				5290F61FC60147168D0199EE /* CDVCapture.bundle */,
 			);
 			name = Resources;
 			path = "GaleriaAppConvenios/Resources";
@@ -244,6 +250,8 @@
 				443748B144B04320A04B3978 /* CDVGlobalization.h */,
 				0519A664D44C49F0A9B4A5BC /* CDVInAppBrowser.m */,
 				842842FB2666457A8E61B2CC /* CDVInAppBrowser.h */,
+				8A73942B7421428384823D5E /* CDVCapture.m */,
+				19088C7762514A9290B66733 /* CDVCapture.h */,
 			);
 			name = Plugins;
 			path = "GaleriaAppConvenios/Plugins";
@@ -326,6 +334,7 @@
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 				2E3056A3B6B84F309C6B8907 /* CDVNotification.bundle in Resources */,
+				FC4B221C3DA44845A7196F7D /* CDVCapture.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +378,7 @@
 				9B3F33EF1EFD41248A438CB6 /* CDVLocation.m in Sources */,
 				6FBA7289598E4483BAF56EB0 /* CDVGlobalization.m in Sources */,
 				85E2DA3A9FF14DD4A4E8744E /* CDVInAppBrowser.m in Sources */,
+				66EE7F6443BC4EC5A479E3E5 /* CDVCapture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
