@@ -47,7 +47,7 @@ var app = {
         
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function(id) { 
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -62,9 +62,10 @@ var app = {
 // Add to index.js or the first page that loads with your app.
 // For Intel XDK and please add this to your app.js.
 
+
 document.addEventListener('deviceready', function () {
   // Enable to debug issues.
-  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+   window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
   
   
 }, false);
@@ -97,7 +98,7 @@ function abrir_mensajes(titulo,mensaje){
 
 
 $( document ).ready(function() {
-    get_noticias();
+    /*get_noticias();
     console.log(localStorage.emailusuario);
     if(""+localStorage.emailusuario!="undefined" && ""+localStorage.passwordusuario!="undefined"){
         email_login=""+localStorage.emailusuario;
@@ -106,7 +107,7 @@ $( document ).ready(function() {
     }
 
     cargar_tipo_aptos();
-
+*/
 });
 
 
@@ -1859,4 +1860,3 @@ function cargar_mapa_convenio_listado(){
       });
 
 }
-    
