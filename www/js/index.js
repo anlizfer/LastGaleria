@@ -122,6 +122,6 @@ function get_noticias(){
 
     //respuesta si falla
     request.fail(function(jqXHR, textStatus) {
-       alert("No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente. "+textStatus);
+       alert("No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente. "+textStatus+"  "+jqXHR);
     });
 }
