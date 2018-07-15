@@ -116,12 +116,12 @@ function get_noticias(){
           $("#listado-noticias").html(cadena_noticias);
 
       }else{
-          abrir_mensajes("Error",msg.mensaje);
+          abrir_mensajes(msg.mensaje);
       }
   });     
 
     //respuesta si falla
     request.fail(function(jqXHR, textStatus) {
-       abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+       alert("No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
     });
 }
