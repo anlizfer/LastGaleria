@@ -34,7 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 
-        //inicial();
+        inicial();
         app.receivedEvent('deviceready');
 
         var notificationOpenedCallback = function(jsonData) {
