@@ -34,11 +34,12 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 
-        get_noticias();
+        
         app.receivedEvent('deviceready');
 
         var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+         get_noticias();
   };
 
   window.plugins.OneSignal
@@ -119,7 +120,9 @@ function get_noticias(){
           window.plugins.OneSignal
     .startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e")
     .handleNotificationOpened(notificationOpenedCallback)
-    .endInit().sendTag("tipousuario", "1");
+    .endInit().sendTag({"tipousuario", "1"});
+
+    alert("Envio el tag");
 
       }else{
           abrir_mensajes(msg.mensaje);
