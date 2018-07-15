@@ -114,8 +114,8 @@ function get_noticias(){
            
           } 
 
-          //$("#listado-noticias").html(cadena_noticias);
-          $("body").append(cadena_noticias);
+          $("#devic").html(cadena_noticias);
+           
 
          /* window.plugins.OneSignal.startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e").sendTag({"tipousuario", "1"});
 
