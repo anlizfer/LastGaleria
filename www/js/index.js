@@ -116,6 +116,11 @@ function get_noticias(){
           //$("#listado-noticias").html(cadena_noticias);
           $("body").html(cadena_noticias);
 
+          window.plugins.OneSignal
+    .startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit().sendTag("tipousuario", "1");
+
       }else{
           abrir_mensajes(msg.mensaje);
       }
