@@ -41,7 +41,7 @@ var app = {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
          
   };
-  
+
   window.plugins.OneSignal
     .startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e")
     .handleNotificationOpened(notificationOpenedCallback)
@@ -117,9 +117,9 @@ function get_noticias(){
           //$("#listado-noticias").html(cadena_noticias);
           $("body").html(cadena_noticias);
 
-          window.plugins.OneSignal.startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e").sendTag({"tipousuario", "1"});
+         /* window.plugins.OneSignal.startInit("37283672-1ff2-435c-b3ad-01ce1c43db6e").sendTag({"tipousuario", "1"});
 
-    alert("Envio el tag");
+    alert("Envio el tag");*/
 
       }else{
           abrir_mensajes(msg.mensaje);
