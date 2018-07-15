@@ -97,7 +97,7 @@ function abrir_mensajes(titulo,mensaje){
 
 
 $( document ).ready(function() {
-    get_noticias();
+    /*get_noticias();
     console.log(localStorage.emailusuario);
     if(""+localStorage.emailusuario!="undefined" && ""+localStorage.passwordusuario!="undefined"){
         email_login=""+localStorage.emailusuario;
@@ -106,7 +106,7 @@ $( document ).ready(function() {
     }
 
     cargar_tipo_aptos();
-
+*/
 });
 
 
