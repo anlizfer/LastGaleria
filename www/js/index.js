@@ -81,7 +81,6 @@ var zoom_mapa=13;
 var transicion="slide";
 
 
-  
 
 
 //BOTON ATRÁS
