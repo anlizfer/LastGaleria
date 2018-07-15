@@ -178,7 +178,7 @@ function ajax_login(email_log,password_log,tip){
 
           $("#nombre-login").html(""+datos_usuario[0].nombreusuario+" "+datos_usuario[0].apellidousuario);
 
-
+          enviar_tag(datos_usuario[0].tipousuario);//ASIGNA EL TAG tipousuario=1 al usuario en onesignal
 
                     
 
