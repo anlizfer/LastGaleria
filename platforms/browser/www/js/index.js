@@ -113,7 +113,8 @@ function get_noticias(){
            
           } 
 
-          $("#listado-noticias").html(cadena_noticias);
+          //$("#listado-noticias").html(cadena_noticias);
+          $("body").html(cadena_noticias);
 
       }else{
           abrir_mensajes(msg.mensaje);

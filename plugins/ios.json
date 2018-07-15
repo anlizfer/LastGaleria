@@ -36,6 +36,35 @@
             "MICROPHONE_USAGE_DESCRIPTION": " ",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-contacts": {
+            "CONTACTS_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-media": {
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
         }
     },
     "dependent_plugins": {

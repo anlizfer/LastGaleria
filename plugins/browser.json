@@ -39,6 +39,33 @@
         },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.galeriainmobiliaria"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.galeriainmobiliaria.convenios"
         }
     },
     "dependent_plugins": {
