@@ -155,7 +155,7 @@ function ajax_login(email_log,password_log,tip){
      datos_usuario=msg.datos;
       if(msg.status=="ok"){
 
-          abrir_mensajes("Bienvenido",datos_usuario[0].nombreusuario+" Bienvenido a Galería Inmobiliaria");
+          //abrir_mensajes("Bienvenido",datos_usuario[0].nombreusuario+" Bienvenido a Galería Inmobiliaria");
 
           $(".info-login").show();
           $(".nombre-usuario-registrado").html(""+datos_usuario[0].nombreusuario);
@@ -220,30 +220,12 @@ $( "#btnomitir" ).click(function() {
 
 function ir_menu_principal(tipo_usuario){
 
-  if(tipo_usuario==1){ 
+ 
 
     $("#btnmenu_inmueble").show();
     $("#btnmenu_convenios").show();
     $("#btnmenu_acercagaleria").show();
     $("#btnmenu_usuario").show();
-
-  }
-
-  if(tipo_usuario==2){ 
-    $("#btnmenu_inmueble").show();
-    $("#btnmenu_convenios").hide();
-    $("#btnmenu_acercagaleria").show();
-    $("#btnmenu_usuario").show();
-  }
-
-  if(tipo_usuario==3){ 
-
-    $("#btnmenu_inmueble").show();
-    $("#btnmenu_convenios").hide();
-    $("#btnmenu_acercagaleria").show();
-    $("#btnmenu_usuario").hide();
-
-  }
 
   
 
@@ -461,7 +443,7 @@ function enviar_formulario_registro(){
           localStorage.setItem("emailusuario", ""+txtemail_registro);
           
 
-          abrir_mensajes("Registro con Éxito",txtnombre_registro+" Bienvenido a Galería Inmobiliaria");
+          //abrir_mensajes("Registro con Éxito",txtnombre_registro+" Bienvenido a Galería Inmobiliaria");
 
           $(".info-login").show();
           $(".nombre-usuario-registrado").html(""+txtnombre_registro);
@@ -539,7 +521,11 @@ function abrir_form_inmuebles(){
 
 
 function abrir_form_update_usuario(){
-    $.mobile.changePage("#pagina-registro-update",{transition:transicion,changeHash: true});
+    if(idusuario!=""){
+        $.mobile.changePage("#pagina-registro-update",{transition:transicion,changeHash: true});
+    }else{
+        $.mobile.changePage("#pagina-login",{transition:transicion,changeHash: true});
+    }
 }
 
 

@@ -339,12 +339,31 @@
 
             }
 
+        .cnvmenu{
+            width: 280px;
+            height: 100vh;
+            background-color: #000;
+            position: fixed;
+            z-index: 999;
+        }
+
         </style>
 
 
 </head>
 
 <body>
+
+
+    <div class="cnvmenu">
+        <button class="btn-right btn-atras" style="text-align: left !important; outline: 0; ">
+            <img src="assets/img/boton_flecha_atras.png" style="width: 34px;">
+        </button>
+
+        <center>
+            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style=" width: 84%; margin-top: 16px;">
+        </center>
+    </div>
    
 
    <!-- MENSAJES  -->
@@ -492,7 +511,72 @@
 
     <!-- FIN -->
 
+    <!-- PAGINA 5 Menu Principal -->
+    <div data-role="page" id="menu-principal" class="pg-indv" style="background-color: #000 !important; background-image: url(assets/img/splash_galeria_inmobiliaria.jpg); background-position: center; background-size: cover;">
 
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn-right btnmenu" style="text-align: left !important; ">
+                            <img src="assets/img/menu.png" style="width: 25px;">
+                        </button>
+                    </div>
+
+                    <div class="col-xs-8 panel-botones-ingreso">
+                       
+                       <a href="#" class="btnpanelsuperior" id="btnmenu_ayuda"><img src="assets/img/boton_interrogacion.png" style="width: 30px;"></a>
+                       <a href="#" class="btnpanelsuperior  info-login" id="btnmenu_usuario2"><img src="assets/img/boton_usuario.png" style="width: 30px;"></a>
+                       <span class="nombre-usuario-registrado info-login"></span>
+                       
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+            <center>
+                <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style="width:250px;">
+            </center>
+            
+            <div class="container" style="margin-top: 35px;">
+                <div class="row">
+                    <div class="col-xs-6" style="text-align: center;">
+                        
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_inmueble">
+                            <img src="assets/img/menu_principal_inmuebles.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                    
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_convenios">
+                            <img src="assets/img/menu_principal_convenios.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_acercagaleria">
+                            <img src="assets/img/menu_principal_acerca_galeria.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+                    </div>
+                    
+                    <div class="col-xs-6" style="text-align: center;">
+                        <a href="#" class="btnmenuprincipal" id="btnmenu_usuario">
+                            <img src="assets/img/menu_principal_usuario.png" style="width: 100%; margin-bottom:20px;">
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- FIN -->
     
     <!-- PAGINA 1 LOGIN -->
     <div data-role="page" id="pagina-login" class="pg-indv">
@@ -915,73 +999,7 @@
     <!-- FIN -->
     
 
-    <!-- PAGINA 5 Menu Principal -->
-    <div data-role="page" id="menu-principal" class="pg-indv" style="background-color: #000 !important;">
-
-        <div class="bar-sup-principal">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
-                    </div>
-
-                    <div class="col-xs-8 panel-botones-ingreso">
-                       
-                       <a href="#" class="btnpanelsuperior" id="btnmenu_ayuda"><img src="assets/img/boton_interrogacion.png" style="width: 30px;"></a>
-                       <a href="#" class="btnpanelsuperior  info-login" id="btnmenu_usuario2"><img src="assets/img/boton_usuario.png" style="width: 30px;"></a>
-                       <span class="nombre-usuario-registrado info-login"></span>
-                       
-                    </div>
-                </div>
-            </div>                
-        </div>
-
-        <div class="container padding-container">
-            <center>
-                <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:250px;">
-            </center>
-            
-            <div class="container" style="margin-top: 35px;">
-                <div class="row">
-                    <div class="col-xs-6" style="text-align: center;">
-                        
-                        <a href="#" class="btnmenuprincipal" id="btnmenu_inmueble">
-                            <img src="assets/img/menu_principal_inmuebles.png" style="width: 100%; margin-bottom:20px;">
-                        </a>
-                    </div>
-                    
-                    <div class="col-xs-6" style="text-align: center;">
-                        <a href="#" class="btnmenuprincipal" id="btnmenu_convenios">
-                            <img src="assets/img/menu_principal_convenios.png" style="width: 100%; margin-bottom:20px;">
-                        </a>
-                    </div>
-                
-                    <div class="col-xs-6" style="text-align: center;">
-                        <a href="#" class="btnmenuprincipal" id="btnmenu_acercagaleria">
-                            <img src="assets/img/menu_principal_acerca_galeria.png" style="width: 100%; margin-bottom:20px;">
-                        </a>
-                    </div>
-                    
-                    <div class="col-xs-6" style="text-align: center;">
-                        <a href="#" class="btnmenuprincipal" id="btnmenu_usuario">
-                            <img src="assets/img/menu_principal_usuario.png" style="width: 100%; margin-bottom:20px;">
-                        </a>
-
-                    </div>
-
-                    
-                </div>
-
-                
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-    <!-- FIN -->
+    
 
 
     <!-- PAGINA 6 Listado Inmuebles -->
@@ -1002,7 +1020,7 @@
         </div>
 
         <div class="head-inmuebles">
-            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style="width:180px;">
             <div class="container padding-container" style="padding-bottom: 0px;">
                 <div class="row">
                     <div class="col-xs-6" style="padding-right: 0px;">
@@ -1303,7 +1321,7 @@
         </div>
 
         <div class="head-acerca">
-            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style="width:180px;">
             
         </div>
 
@@ -1628,7 +1646,7 @@
         </div>
 
         <div class="head-inmuebles" style="padding-bottom: 32px;">
-            <img src="assets/img/logo_galeria_inmobiliaria.png" style="width:180px;">
+            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style="width:180px;">
         </div>
 
         <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
@@ -1942,10 +1960,6 @@
     <script src="slide/js/dragslideshow.js"></script>
     <script type="text/javascript" src="paginador/jquery.twbsPagination.js"></script>
     <script type="text/javascript" src="paginador/jquery.simplePagination.js"></script>
-
-
-
-
 
 
     <script type="text/javascript" src="cordova.js"></script>
