@@ -65,7 +65,7 @@
         }
             .bar-sup-principal{
                 width: 100%;
-                padding: 0px 0px;
+                padding: 8px 0px;
                 background-color: #000; 
             }
             .titulo_page{
@@ -183,7 +183,7 @@
 
             .btnmenuprincipal{
                 width: 100%;
-
+                
             }
 
             .nombre-usuario-registrado{
@@ -340,12 +340,52 @@
             }
 
         .cnvmenu{
-            width: 280px;
+            width: 95%;
             height: 100vh;
-            background-color: #000;
+            background-color: #333333;
             position: fixed;
             z-index: 999;
+            left: -100%;
         }
+
+        .btn-menu-vertical{
+            background-color: #333333;
+            border-radius: 0px;
+            text-align: left;
+            color: #fff;
+            width: 100%;
+            border-left: none;
+            border-right: none;
+            
+            border-top: 1px solid #565858;
+            border-bottom: 1px solid #565858;
+
+            font-weight: 100;
+
+        }
+
+        .contain_botones_menu{
+            margin-top: 35px;
+            width: 100%;
+        }
+
+        .btnmenu{
+            text-align: center !important;
+            border: none !important;
+            box-shadow: none;
+            position: fixed;
+            bottom: 15px;
+            right: 12px;
+            z-index: 99999;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 100px !important;
+            outline: 0;
+
+        }
+
+
+
 
         </style>
 
@@ -353,16 +393,31 @@
 </head>
 
 <body>
-
+    
+    <button class="btn-right btnmenu">
+        <img src="assets/img/menu.png" style="width: 25px;">
+    </button>
 
     <div class="cnvmenu">
-        <button class="btn-right btn-atras" style="text-align: left !important; outline: 0; ">
+        <button class="btn-right btn-atras btnmenu-back" style="text-align: left !important; outline: 0; ">
             <img src="assets/img/boton_flecha_atras.png" style="width: 34px;">
         </button>
 
         <center>
-            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style=" width: 84%; margin-top: 16px;">
+            <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style=" width: 60%; margin-top: 16px;">
         </center>
+
+            <div class="contain_botones_menu">
+                
+           
+                <button type="button" class="btn btn-default btn-menu-vertical btn-lg btninmuebles_vert">INMUEBLES</button>
+                <button type="button" class="btn btn-default btn-menu-vertical btn-lg btnconvenios_vert">CONVENIOS</button>
+                <button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnacerca_vert">ACERCA DE GALERÍA INMOBILIARIA</button>
+                <button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnusuario_vert">USUARIO</button>
+                <button type="button" class="btn btn-default  btn-menu-vertical btn-lg btncerrar_vert">CERRAR SESIÓN</button>
+
+             </div>
+        
     </div>
    
 
@@ -518,9 +573,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnmenu" style="text-align: left !important; ">
-                            <img src="assets/img/menu.png" style="width: 25px;">
-                        </button>
+                        
                     </div>
 
                     <div class="col-xs-8 panel-botones-ingreso">
@@ -584,12 +637,14 @@
         <div class="bar-sup-principal">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-8">
-                        <h2 class="titulo_page">Iniciar Sesión</h2>
+                    <div class="col-xs-4">
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
-                    <div class="col-xs-4">
-                        <button class="btn-right" id="btnomitir">Omitir</button>
+                    <div class="col-xs-8">
+                        <!--<button class="btn-right" id="btnomitir">Omitir</button>-->
                     </div>
                 </div>
             </div>                
@@ -704,10 +759,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; " id="btnatras_lostpassword">Atrás</button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
-                    <div class="col-xs-4">
+                    <div class="col-xs-8">
                        
                     </div>
                 </div>
@@ -753,7 +810,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -814,8 +873,10 @@
         <div class="bar-sup-principal">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                   <div class="col-xs-4">
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -924,7 +985,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -1009,11 +1072,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >
-                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones"><img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;"></a>
+                        <a href="#" class="btnpanelsuperior btnnotificaciones" id="btnmenu_notificaciones">
+                            <img src="assets/img/boton_campana.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
                 </div>
             </div>                
@@ -1108,7 +1175,7 @@
     <!-- PAGINA 7 Detalle Inmueble -->
     <div data-role="page" id="pagina-detalle-inmueble" class="pg-indv">
         
-        <div class="bar-sup-principal"  style="background-position: center; background-size: cover; height: 210px; position: relative; " id="galeria-detalle">
+        <div class="bar-sup-principal"  style="background-position: center; background-size: cover; height: 210px; position: relative; padding: 0px; " id="galeria-detalle">
             <div id="content_slider" style="height: 210px; position: relative; width: 100%;">
                 
             </div>
@@ -1117,12 +1184,14 @@
             <div class="container" style="width: 100%; position: absolute; top: 0px;">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;  background-color: transparent !important;   padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >
                         <a href="#" class="btnpanelsuperior" id="btncompartir_detalle"><img src="assets/img/boton_compartir_gris.png" style="width: 30px; margin-top: 3px;"></a>
-                        <a href="#" class="btnfavorito" id="btn-favorito" style="    margin-top: 10px; float:right;"></a>
+                        
                     </div>
                 </div>
             </div>    
@@ -1259,7 +1328,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -1310,7 +1381,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >
@@ -1420,7 +1493,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -1588,7 +1663,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn-right btnatras" style="text-align: left !important; ">Atrás</button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-4">
@@ -1635,7 +1712,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >
@@ -1665,10 +1744,10 @@
 
                 <div class="row">
                     <div class="col-xs-7" >
-                        <a class="btngaleria" href="#" style="float:left;">
+                        <!--<a class="btngaleria" href="#" style="float:left;">
                             <img src="assets/img/boton_filtro.png" style="width: 30px; ">                             
                         </a>
-                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>
+                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>-->
                     </div>
 
                     <div class="col-xs-5" style="text-align: right;" >
@@ -1718,9 +1797,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;  background-color: transparent !important;   padding-left: 0px; ">
-                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px;">
-                        </button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >                       
@@ -1834,7 +1913,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <button class="btn-right btnatras" style="text-align: left !important;     padding-left: 0px; "><img src="assets/img/boton_flecha_atras.png" style="width: 30px;"></button>
+                        <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px;">
+                        </a>
                     </div>
 
                     <div class="col-xs-9" style="text-align: right;" >

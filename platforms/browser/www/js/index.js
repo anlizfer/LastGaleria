@@ -94,10 +94,15 @@ function abrir_mensajes(titulo,mensaje){
 function inicial(){
     get_noticias();
     console.log(localStorage.emailusuario);
-    if(""+localStorage.emailusuario!="undefined" && ""+localStorage.passwordusuario!="undefined"){
-        email_login=""+localStorage.emailusuario;
-        password_login=""+localStorage.passwordusuario;
-        ajax_login(email_login,password_login,"0");
+
+    if(localStorage.emailusuario!="" && localStorage.passwordusuario!=""){
+
+      if(""+localStorage.emailusuario!="undefined" && ""+localStorage.passwordusuario!="undefined"){
+          email_login=""+localStorage.emailusuario;
+          password_login=""+localStorage.passwordusuario;
+          ajax_login(email_login,password_login,"0");
+      }
+
     }
 
     cargar_tipo_aptos();
@@ -131,7 +136,8 @@ function enviar_login(){
 
 $("#btncontinuar").click(function(){
   $(".info-login").show();
-    ir_menu_principal(datos_usuario[0].tipousuario);
+
+    ir_menu_principal();
 });
 
 
@@ -173,6 +179,7 @@ function ajax_login(email_log,password_log,tip){
 
 
           idusuario=""+datos_usuario[0].idusuario;
+          tipousuario=""+datos_usuario[0].tipousuario;
 
           $("#contain-log").show();
 
@@ -183,7 +190,7 @@ function ajax_login(email_log,password_log,tip){
                     
 
           if(tip=="1"){
-              ir_menu_principal(datos_usuario[0].tipousuario);
+              ir_menu_principal();
           }
           
 
@@ -215,7 +222,7 @@ $( "#btnomitir" ).click(function() {
     $(".info-login").hide();
     $(".nombre-usuario-registrado").html("");
 
-    ir_menu_principal(3);
+    ir_menu_principal();
 });
 
 function ir_menu_principal(tipo_usuario){
@@ -385,7 +392,7 @@ function enviar_formulario_modificar(){
           $(".nombre-usuario-registrado").html(""+txtnombre_registro_update);
 
           
-          ir_menu_principal(datos_usuario[0].tipousuario);
+          ir_menu_principal();
 
       }else{
           abrir_mensajes("Error",msg.mensaje);
@@ -407,7 +414,7 @@ var txtapellido_registro="";
 var txtpassword_registro="";
 var txttelefono_registro="";
 var idusuario="";
-var tipousuario="";
+var tipousuario="0";
 
 
 function enviar_formulario_registro(){
@@ -449,7 +456,7 @@ function enviar_formulario_registro(){
           $(".nombre-usuario-registrado").html(""+txtnombre_registro);
 
           
-          ir_menu_principal(2);
+          ir_menu_principal();
 
       }else{
           abrir_mensajes("Error",msg.mensaje);
@@ -476,25 +483,31 @@ Autor: ANGEL LIZCANO
 Descripcion:  Formulario Menu Principal
 
 ####################################################
+
+<button type="button" class="btn btn-default btn-menu-vertical btn-lg btninmuebles_vert">INMUEBLES</button>
+<button type="button" class="btn btn-default btn-menu-vertical btn-lg btnconvenios_vert">CONVENIOS</button>
+<button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnacerca_vert">ACERCA DE GALERÍA INMOBILIARIA</button>
+<button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnusuario_vert">USUARIO</button>
+<button type="button" class="btn btn-default  btn-menu-vertical btn-lg btncerrar_vert">CERRAR SESIÓN</button>
 */
 
 //BOTON INMUEBLE
 
 
 
-$( "#btnmenu_inmueble" ).click(function() {
+$( "#btnmenu_inmueble,.btninmuebles_vert" ).click(function() {
     abrir_form_inmuebles();
 });
 //BOTON INMUEBLE
-$( "#btnmenu_acercagaleria" ).click(function() {
+$( "#btnmenu_acercagaleria,.btnacerca_vert" ).click(function() {
   abrir_form_info_galeria();
 });
 //BOTON INMUEBLE
-$( "#btnmenu_usuario,#btnmenu_usuario2" ).click(function() {
+$( "#btnmenu_usuario,#btnmenu_usuario2,.btnusuario_vert" ).click(function() {
     abrir_form_update_usuario();
 });
 //BOTON INMUEBLE
-$( "#btnmenu_convenios" ).click(function() {
+$( "#btnmenu_convenios,.btnconvenios_vert" ).click(function() {
   abrir_form_convenios();
 });
 
@@ -521,6 +534,7 @@ function abrir_form_inmuebles(){
 
 
 function abrir_form_update_usuario(){
+    $("#mensajes-galeria").modal("hide");
     if(idusuario!=""){
         $.mobile.changePage("#pagina-registro-update",{transition:transicion,changeHash: true});
     }else{
@@ -783,6 +797,39 @@ function compartir_tipo(tip){
       }
       return _char;
   }
+
+
+$(".btnmenu,.btn-menu-vertical").click(function(){
+  abrir_menu_movil();
+});
+
+$(".btnmenu-back").click(function(){
+  abrir_menu_movil();
+});
+
+var contador=1;
+    function abrir_menu_movil(){
+
+      if(contador==1){
+        contador=0;
+        $(".cnvmenu").animate({
+          left:"0"
+        });
+
+        $("#icono_menu").removeClass("fa-bars");
+        $("#icono_menu").addClass("fa-times");
+
+      }else{
+        contador=1;
+        $(".cnvmenu").animate({
+          left:"-100%"
+        });
+
+        $("#icono_menu").addClass("fa-bars");
+        $("#icono_menu").removeClass("fa-times");
+      }
+
+    }
 
 
 function cargar_mapa(lat,long){
@@ -1205,8 +1252,7 @@ function cargar_inmuebles_destacados_api(tip,pag){
                 cadena_inmuebles+='<div class="container" style="padding: 0px;">';
                 cadena_inmuebles+='<div class="row" style="padding: 0px;">';
                 cadena_inmuebles+='<div class="col-xs-6">';
-                cadena_inmuebles+='<a href="#" class="btnfavorito">';
-                cadena_inmuebles+=' </a>';
+                
                 cadena_inmuebles+='</div>';
                 cadena_inmuebles+='<div class="col-xs-6">';
                 cadena_inmuebles+='<div class="precio-inmueble">';
@@ -1583,7 +1629,8 @@ function get_convenios(){
     type: "POST",
     data: {            
             idusuario:""+idusuario,
-            nombreconvenio:""+nombreconvenio
+            nombreconvenio:""+nombreconvenio,
+            tipousuario:""+tipousuario
           }
     });
 
@@ -1651,7 +1698,17 @@ function get_convenios(){
 var telefonoconvenio="";
 var idproducto="";
 var favorito_convenio="";
+
+
+
+
+
 function abrir_form_detalleconvenio(idconvenio, indice){
+
+    if(tipousuario=="0"){
+        abrir_mensajes("Error",'No estás registrado en Galería Inmobiliaria, ¿Deseas ser parte de Galería  Inmobiliaria? <br> <br> <button class="btn-amarillo btningresar_mensaje" onclick="abrir_form_update_usuario()" >INGRESAR</button> ');
+        return;
+    }
 
     $.mobile.changePage("#pagina-detalle-convenio",{transition:transicion,changeHash: true});
     var imagen_convenio=""+servidor_ws+"/convenios/"+obj_convenio[indice].imagenCatalogo;
