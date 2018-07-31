@@ -553,7 +553,9 @@ function abrir_form_info_galeria(){
 }
 
 
-
+$("#btn-llamar-agente").click(function(){
+    window.open("tel:0376430034","_self");
+});
 
 
 /*
@@ -1616,8 +1618,18 @@ Descripcion:  Formulario que lista los diferentes convenios de galeria inmobilia
 
 var obj_convenio=new Object();
 
+var favorito_sel="";
+
+
+$("#btnfavoritolistado").click(function(){
+   favorito_sel="SI";
+   get_convenios();
+});
+
+
 
 $("#btnbuscarconvenio").click(function(){
+   favorito_sel="";
    get_convenios();
 });
 
@@ -1644,6 +1656,12 @@ function get_convenios(){
           var cadena_convenios="";
 
           for(var i=0; i<obj_convenio.length; i++){
+
+              if(favorito_sel=="SI"){
+                  if(obj_convenio[i].favorito==""){
+                      break;
+                  }
+              }
 
               var foto_convenio="";
               if(obj_convenio[i].imagenCatalogo!=""){
@@ -1877,7 +1895,7 @@ function cargar_mapa_convenio_listado(){
 
   var myLatLng;
         
-    var myLatLng = new google.maps.LatLng(7.1178107,-73.109099);
+    var myLatLng = new google.maps.LatLng(obj_convenio[0].latitudFabricante,obj_convenio[0].longitudFabricante);
 
         var mapProp = {
 
@@ -1888,13 +1906,29 @@ function cargar_mapa_convenio_listado(){
       map=new google.maps.Map(document.getElementById("mapa-convenios"),mapProp);
 
      
-      var beachMarker;
+     for(var i=0;i<obj_convenio.length;i++){
+          var beachMarker;
+          var myLatLng2 = new google.maps.LatLng(obj_convenio[i].latitudFabricante,obj_convenio[i].longitudFabricante);
       
-      beachMarker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,              
-          title: ''
-      });
+          beachMarker = new google.maps.Marker({
+              position: myLatLng2,
+              map: map,              
+              title: ''
+          });
+
+          beachMarker.codigo_convenio=""+obj_convenio[i].IdProducto;
+          beachMarker.indice=i;
+
+
+          beachMarker.addListener('click', function(e) {              
+              abrir_form_detalleconvenio(this.codigo_convenio, this.indice);
+          });
+
+
+     }
+
+
+      
 
 }
 
