@@ -170,6 +170,8 @@ function ajax_login(email_log,password_log,tip){
           localStorage.setItem("passwordusuario", ""+password_log);
           localStorage.setItem("emailusuario", ""+datos_usuario[0].emailusuario);
 
+          $("#codigo_usuario").html(""+datos_usuario[0].idusuario);
+
 
           $("#txtemail_registro_update").val(""+datos_usuario[0].emailusuario);
           $("#txtnombre_registro_update").val(""+datos_usuario[0].nombreusuario);
