@@ -73,7 +73,16 @@ var zoom_mapa=13;
 
 var transicion="slide";
 
+var whatsapp_asesor="3187117655";
 
+
+$("#btn_chat").click(function(){
+   window.open("https://tawk.to/chat/5a68b47dd7591465c7070e7f/default","_blank");
+});
+
+$("#btnwhatsapp").click(function(){
+    window.open("https://api.whatsapp.com/send?phone=57"+whatsapp_asesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+})
 
 
 //BOTON ATRÁS
@@ -101,8 +110,12 @@ function inicial(){
           email_login=""+localStorage.emailusuario;
           password_login=""+localStorage.passwordusuario;
           ajax_login(email_login,password_login,"0");
+      }else{
+         $("#mensajes-registro").modal("show");
       }
 
+    }else{
+         $("#mensajes-registro").modal("show");
     }
 
     cargar_tipo_aptos();
@@ -169,6 +182,8 @@ function ajax_login(email_log,password_log,tip){
           localStorage.setItem("idusuario", ""+datos_usuario[0].idusuario);
           localStorage.setItem("passwordusuario", ""+password_log);
           localStorage.setItem("emailusuario", ""+datos_usuario[0].emailusuario);
+
+          $("#codigo_usuario").html(""+datos_usuario[0].idusuario);
 
 
           $("#txtemail_registro_update").val(""+datos_usuario[0].emailusuario);
@@ -513,6 +528,11 @@ $( "#btnmenu_convenios,.btnconvenios_vert" ).click(function() {
 
 $( "#btnmenu_ayuda" ).click(function() {
   abrir_form_ayudas();
+});
+
+$("#btnnotificaciones_main,.btnoticias_vert").click(function(){
+    get_noticias();
+    abrir_form_notificaciones();
 });
 
 
