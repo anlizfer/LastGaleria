@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.galeriainmobiliaria" version="1.0.15" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.galeriainmobiliaria" version="1.0.16" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>GaleriaInmobiliaria</name>
     <description>
         Aplicación para galería inmobiliaria
@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-minSdkVersion" value="17" />
     <preference name="android-targetSdkVersion" value="26" />
 
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
