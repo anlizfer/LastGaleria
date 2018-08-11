@@ -73,7 +73,7 @@ var zoom_mapa=13;
 
 var transicion="slide";
 
-var whatsapp_asesor="3187117655";
+var whatsapp_asesor="";
 
 
 $("#btn_chat").click(function(){
@@ -81,8 +81,20 @@ $("#btn_chat").click(function(){
 });
 
 $("#btnwhatsapp").click(function(){
-    window.open("https://api.whatsapp.com/send?phone=57"+whatsapp_asesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+
+    window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
 })
+
+
+function getWhatsapp()
+{
+    var max=obj_asesores.length;
+    max=max-1;
+    var min=0;
+    var ind=Math.floor(Math.random()*(max-min+1)+min);
+
+    return obj_asesores[ind].whatsappAsesor;
+}
 
 
 //BOTON ATRÁS
@@ -1162,12 +1174,7 @@ function cargar_inmuebles_destacados_api(tip,pag){
     var garaje_filtro_inmueble=""+$("#garaje_filtro_inmueble").val();
     var txtbuscarinmueble=""+$("#txtbuscarinmueble").val();
 
-    var cadena_filtro="";
-    cadena_filtro+="limite/"+pag+"/";
-    cadena_filtro+="cantidad/10/";
     
-
-    operador_filtro_inmueble=""+tipo_filtro_inmueble;
 
 
 
@@ -1207,12 +1214,30 @@ function cargar_inmuebles_destacados_api(tip,pag){
       garaje_filtro_inmueble="0";
     }
 
+
+    var cadena_filtro="";
+    
     if(txtbuscarinmueble=="" || ""+ciudad_filtro_inmueble=="null"){
-      txtbuscarinmueble="0";
+      txtbuscarinmueble="";
+
+      cadena_filtro+="limite/"+pag+"/";
+      cadena_filtro+="cantidad/10/";
+
+
+    }else{
+
+      cadena_filtro+="limite/"+pag+"/";
+      cadena_filtro+="cantidad/100000/";
+
     }
 
+
+   
     
-    cadena_filtro+="dt/"+txtbuscarinmueble+"/";
+
+    operador_filtro_inmueble=""+tipo_filtro_inmueble;
+    
+    
     cadena_filtro+="departamento/"+depto_filtro_inmueble+"/";
     cadena_filtro+="ciudad/"+ciudad_filtro_inmueble+"/";
     cadena_filtro+="zona/"+zona_filtro_inmueble+"/";
@@ -1227,12 +1252,12 @@ function cargar_inmuebles_destacados_api(tip,pag){
     cadena_filtro+="order/desc/";
     cadena_filtro+="banios/"+banos_filtro_inmueble+"/";
     cadena_filtro+="alcobas/"+habitaciones_filtro_inmueble+"/";
-    cadena_filtro+="garajes/"+garaje_filtro_inmueble;
+    cadena_filtro+="garajes/"+garaje_filtro_inmueble+"/";
+  
    
     var cadena_filtros='http://www.simiinmobiliarias.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro;
 
-    console.log(cadena_filtros);
-
+    
 
     $.ajax({
       url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro,
@@ -1269,6 +1294,20 @@ function cargar_inmuebles_destacados_api(tip,pag){
 
               if(k<10){
 
+
+                if(txtbuscarinmueble!=""){
+                   if(txtbuscarinmueble!=""+datos_inmuebles_listado[k].Codigo_Inmueble){
+                       continue;
+                   }
+                }
+
+                var valor_inm="0";
+                if(parseFloat(datos_inmuebles_listado[k].Venta)>0){
+                   valor_inm=""+datos_inmuebles_listado[k].Venta;
+                }else{
+                   valor_inm=""+datos_inmuebles_listado[k].Canon;
+                }
+
                 cadena_inmuebles+='<div class="item-menu">';
                 cadena_inmuebles+='<div class="image-item-menu" style="background-image: url('+datos_inmuebles_listado[k].foto1+'); " onclick="abrir_form_detalleinmueble(&#39;'+datos_inmuebles_listado[k].Codigo_Inmueble+'&#39;)">';
                 cadena_inmuebles+='<div class="container" style="padding: 0px;">';
@@ -1279,7 +1318,7 @@ function cargar_inmuebles_destacados_api(tip,pag){
                 cadena_inmuebles+='<div class="col-xs-6">';
                 cadena_inmuebles+='<div class="precio-inmueble">';
                 cadena_inmuebles+='<h5 style="margin: 0px; padding: 0px;     font-size: 11px;  font-weight: bold;">'+datos_inmuebles_listado[k].Gestion+'</h5>';
-                cadena_inmuebles+='<h4 style="margin: 0px; padding: 0px;     font-size: 18px;  font-weight: bold;">$'+datos_inmuebles_listado[k].Canon+'</h4>';
+                cadena_inmuebles+='<h4 style="margin: 0px; padding: 0px;     font-size: 18px;  font-weight: bold;">$'+valor_inm+'</h4>';
                 cadena_inmuebles+='</div>';
                 cadena_inmuebles+='</div>';
                 cadena_inmuebles+='</div>';
@@ -1362,7 +1401,9 @@ function cargar_inmuebles_destacados_api(tip,pag){
           }
 
 
-           $('#pagination-demo').pagination({
+          if(txtbuscarinmueble=="" || ""+ciudad_filtro_inmueble=="null"){
+            
+             $('#pagination-demo').pagination({
               items: total_inmuebles,
               itemOnPage: 10,
               currentPage: pagina_actual,
@@ -1376,7 +1417,18 @@ function cargar_inmuebles_destacados_api(tip,pag){
                   // some code
                   cargar_inmuebles_destacados_api("0",page);
               }
+
           });
+
+
+          }else{
+
+             $('#pagination-demo').html("");
+
+          }
+
+
+          
 
 
           $("#listado-imuebles").html(cadena_inmuebles);
@@ -1429,6 +1481,9 @@ $(".btnnotificaciones").click(function(){
 });
 
 
+var obj_asesores=new Object();
+
+
 function get_noticias(){
    var request = $.ajax({
     url: servidor_ws+"/get_notificaciones.php",
@@ -1444,6 +1499,7 @@ function get_noticias(){
       if(msg.status=="ok"){
           
           var objdata=msg.datos;
+          obj_asesores=msg.asesores;
 
           var cadena_noticias="";
 
