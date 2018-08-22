@@ -81,9 +81,11 @@ $("#btn_chat").click(function(){
 });
 
 $("#btnwhatsapp").click(function(){
-
-    window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+  window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
 })
+
+
+
 
 
 function getWhatsapp()
@@ -92,6 +94,14 @@ function getWhatsapp()
     max=max-1;
     var min=0;
     var ind=Math.floor(Math.random()*(max-min+1)+min);
+
+
+
+    $(".numero_whatsapp").html(""+obj_asesores[ind].whatsappAsesor);
+
+    $(".btn_numero_whatsapp").click(function(){
+      window.open("https://api.whatsapp.com/send?phone=57"+obj_asesores[ind].whatsappAsesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+    })
 
     return obj_asesores[ind].whatsappAsesor;
 }
@@ -115,6 +125,11 @@ function abrir_mensajes(titulo,mensaje){
 function inicial(){
     get_noticias();
     console.log(localStorage.emailusuario);
+
+    if(""+localStorage.emailrecuperacion!="undefined"){
+      $("#txtemail_lostpassword").val(""+localStorage.emailrecuperacion);
+    }
+
 
     if(localStorage.emailusuario!="" && localStorage.passwordusuario!=""){
 
@@ -235,7 +250,6 @@ function ajax_login(email_log,password_log,tip){
 
 
 
-
 function ir_lost_pass(){  
     $.mobile.changePage("#pagina-lost-password",{transition:transicion,changeHash: true});
 }
@@ -293,12 +307,102 @@ $( "#form-lostpassword" ).submit(function( event ) {
 var email_lostpassword="";
 function enviar_lostpassword(){
     email_lostpassword=""+$("#txtemail_lostpassword").val();
-    ir_verificar();
+    solicitar_email();
 }
 
 function ir_verificar(){
     $.mobile.changePage("#pagina-verificar-code",{transition:transicion,changeHash: true});
 }
+
+
+function solicitar_email(){
+ 
+  
+  var request = $.ajax({
+    url: "https://www.wikomm.com/enviar_mensaje_app.php",
+    type: "POST",
+    data: {
+            email:""+email_lostpassword
+          }
+    });
+
+    request.done(function(msg) {            
+    //var obj = jQuery.parseJSON(msg);       
+      if(msg!="error"){
+
+          localStorage.emailrecuperacion=""+email_lostpassword;
+
+          ir_verificar();     
+          abrir_mensajes("Ingresa el Código de Verificación","Se ha enviado un correo con el código de verificación de 4 cifras, Ingresa el código para solicitar el cambio de contraseña.");
+      }else{
+          abrir_mensajes("Error","El correo no existe.");
+      }
+  });     
+
+    //respuesta si falla
+    request.fail(function(jqXHR, textStatus) {
+       abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+    });
+
+}
+
+
+
+
+
+$("#form-nuevopassword").submit(function( event ) {
+    event.preventDefault();
+    enviar_cambios_password();
+});
+
+function enviar_cambios_password(){
+  var new_passw=$("#txt_newpassword").val();
+    var new_pass_re=$("#txt_re_newpassword").val();
+
+    if(new_passw==""){
+      abrir_mensajes("Error","Debes insertar un nuevo password");
+      return;
+    }
+
+    if(new_pass_re==""){
+      abrir_mensajes("Error","Debes insertar un nuevo password para verificar");
+      return;
+    }
+
+    if(""+new_passw!=""+new_pass_re){
+      abrir_mensajes("Error","Los password no coinciden");
+      return;
+    }
+
+
+    var request = $.ajax({
+    url: servidor_ws+"/cambiar_password.php",
+    type: "POST",
+    data: {
+            email:""+localStorage.emailrecuperacion,
+            new_passw:""+new_passw
+          }
+    });
+
+    request.done(function(msg) {            
+    //var obj = jQuery.parseJSON(msg);       
+      if(msg=="ok"){
+            abrir_mensajes("Cambio Generado","El password ha sido modificado correctamente.");
+            $.mobile.changePage("#pagina-login",{transition:transicion,changeHash: true});
+      }else{
+          abrir_mensajes("Error","Error al generar el nuevo password");
+      }
+  });     
+
+    //respuesta si falla
+    request.fail(function(jqXHR, textStatus) {
+      console.log("Entro esta vaina");
+       abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+    });
+}
+
+
+
 /*
 ####################################################
 */
@@ -322,11 +426,10 @@ $( "#form-verificar" ).submit(function( event ) {
 var codigo_verificacion="";
 function enviar_verificacion(){
     var codigo1=""+$("#txtcode1").val();
-    var codigo2=""+$("#txtcode2").val();
-    var codigo3=""+$("#txtcode3").val();
-    var codigo4=""+$("#txtcode4").val();
+   
 
-    codigo_verificacion=codigo1+""+codigo2+""+codigo3+""+codigo3;
+    codigo_verificacion=codigo1;
+    verificar_codigo();
 
 }
 
@@ -343,6 +446,51 @@ $("#btnreenviar").click(function() {
     //REENVIAR CODIGO.
     enviar_lostpassword();
 });
+
+
+
+$("#btn_ir_a_verificar").click(function(){
+    $("#txtemail_lostpassword").val(""+localStorage.emailrecuperacion);
+    ir_verificar();
+});
+
+
+
+
+
+function verificar_codigo(){
+ 
+  
+  var request = $.ajax({
+    url: servidor_ws+"/verificar_codigo.php",
+    type: "POST",
+    data: {
+            email:""+localStorage.emailrecuperacion,
+            code:""+codigo_verificacion
+            
+          }
+    });
+
+    request.done(function(msg) {            
+    //var obj = jQuery.parseJSON(msg);       
+      if(msg=="ok"){
+            $.mobile.changePage("#pagina-lost-password-recuperar",{transition:transicion,changeHash: true});
+      }else{
+          abrir_mensajes("Error",msg.mensaje);
+      }
+  });     
+
+    //respuesta si falla
+    request.fail(function(jqXHR, textStatus) {
+       abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+    });
+
+}
+
+
+
+
+
 
 
 /*
@@ -1500,6 +1648,8 @@ function get_noticias(){
           
           var objdata=msg.datos;
           obj_asesores=msg.asesores;
+
+          getWhatsapp();
 
           var cadena_noticias="";
 
