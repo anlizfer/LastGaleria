@@ -81,7 +81,7 @@ $("#btn_chat").click(function(){
 });
 
 $("#btnwhatsapp").click(function(){
-  window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+  window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria",'_system');
 })
 
 
@@ -100,7 +100,7 @@ function getWhatsapp()
     $(".numero_whatsapp").html(""+obj_asesores[ind].whatsappAsesor);
 
     $(".btn_numero_whatsapp").click(function(){
-      window.open("https://api.whatsapp.com/send?phone=57"+obj_asesores[ind].whatsappAsesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria","_blank");
+      window.open("https://api.whatsapp.com/send?phone=57"+obj_asesores[ind].whatsappAsesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria",'_system');
     })
 
     return obj_asesores[ind].whatsappAsesor;
@@ -954,7 +954,7 @@ function compartir_tipo(tip){
       cadena_compartir="https://plus.google.com/share?url="+ruta_inmueble;
    }
 
-   window.open(""+cadena_compartir,"_blank");
+   window.open(""+cadena_compartir,'_system');
 }
 
 
