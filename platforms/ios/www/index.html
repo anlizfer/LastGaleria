@@ -40,16 +40,19 @@
 
     
 
+
     <script src="assets/jquery/jquery-1.12.0.min.js"></script>
     <script src="assets/jquery_mobile/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-    <link rel="stylesheet" href="assets/jquery_mobile/jquery.mobile-1.4.5.min.css" />        
+    <link rel="stylesheet" href="assets/jquery_mobile/jquery.mobile-1.4.5.min.css" />   
+
+    
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC_ybvqNKXVyplkwSRS9kG6ZSWJJ7lRS-I&signed_in=true&libraries=adsense&sensor=true&language=es"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ybvqNKXVyplkwSRS9kG6ZSWJJ7lRS-I&language=es"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Galeria Inmobiliaria</title>
 
@@ -824,7 +827,7 @@
             <form id="form-login">
                 <div class="row" >
                     <div class="col-md-12">
-                        <input type="email" class="form-control input-control" name="" placeholder="Email" id="txtemail_login" required>
+                        <input type="text" class="form-control input-control" name="" placeholder="Email / Identificación" id="txtemail_login" required>
                     </div>
                 </div>
 
@@ -1130,6 +1133,12 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control" placeholder="Identificación (CC, NIT)" id="txtidentificacion_registro">
+                    </div>
+                </div>
+
                 
 
 
@@ -1240,6 +1249,12 @@
                     </div>
                 </div>
 
+                 <div class="row">
+                    <div class="col-md-12" >
+                        <input type="text" class="form-control input-control" placeholder="Identificación (CC, NIT)" id="txtidentificacion_registro_update">
+                    </div>
+                </div>
+
                 
 
 
@@ -1324,10 +1339,10 @@
 
                 <div class="row">
                     <div class="col-xs-7" >
-                        <a class="btngaleria" href="#" style="float:left;" id="btnbusquedavanzada1">
+                     <!--   <a class="btngaleria" href="#" style="float:left;" id="btnbusquedavanzada1">
                             <img src="assets/img/boton_filtro.png" style="width: 30px; ">                             
                         </a>
-                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>
+                        <span class="lbl-busqueda-avanzada">Búsqueda Avanzada</span>-->
                     </div>
 
                     <div class="col-xs-5" style="text-align: right;" >
@@ -1344,7 +1359,119 @@
                     </div>
 
                 </div>
-            </form>       
+            </form>   
+
+
+            <form id="frmbuscaravanzado">
+                <!--<div class="row">
+                    <div class="col-md-12" >
+                        <h2 class="subtititulo">Búsqueda Avanzada</h2>
+                    </div>
+                </div>-->
+                <!--<div class="row">
+                    <div class="col-xs-12">
+                        <select form="form-control" id="operador_filtro_inmueble">
+                            <option value="1">ARRIENDO</option>
+                            <option value="5">VENTA</option>
+                            <option value="2">ARRIENDO / VENTA</option>
+                        </select>
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span>Departamento</span>
+
+                        <select form="form-control" id="depto_filtro_inmueble" onchange="cargar_ciudades_bydepto(this.value)"> 
+                            <option value="0"></option>                     
+                        </select>
+                        <span>Ciudad</span>
+                        <select form="form-control" id="ciudad_filtro_inmueble" onchange="cargar_zonas_byciudad(this.value)">
+                            <option value="0"></option>
+                        </select>
+
+                        <span>Zona</span>
+                        <select form="form-control" id="zona_filtro_inmueble" onchange="cargar_barrios_byzonas(this.value)">
+                            <option value="0"></option>
+                        </select>
+
+                        <span>Barrio</span>
+                        <select form="form-control" id="barrios_filtro_inmueble">     
+                        <option value="0"></option>                     
+                        </select>
+
+                        <span>Tipo Inmueble</span>
+                        <select form="form-control" id="tipoinmueble_filtro_inmueble">
+                           <option value="0"></option>
+                        </select>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span>Precio Mínimo</span>
+                        <input type="number" name="" id="preciominimo_filtro_inmueble" class="form-control" value="0" >
+                    </div>
+                    <div class="col-xs-6">
+                        <span>Precio Máximo</span>
+                        <input type="number" name="" id="preciomaximo_filtro_inmueble" class="form-control" value="0" > 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-4">
+                        <span>Habitaciones</span>
+                        <select form="form-control" id="habitaciones_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <span>Baños</span>
+                        <select form="form-control" id="banos_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                         <span>Garaje<span>
+                        <select form="form-control"  id="garaje_filtro_inmueble">
+                            <option value="0"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input class="btn-amarillo" type="submit" id="btn-filtrar-inmuebles" style="white-space: normal; font-size: 16px !important; text-align: center; width: 100%;     font-weight: bold !important;" value="FILTRAR">
+                         
+                    
+                    </div>
+                </div>
+
+            </form>  
+            
+
+
             
             <div class="contain-principal-inmueble">
                 
@@ -2129,113 +2256,7 @@
         </div>
 
         <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
-            <form id="frmbuscaravanzado">
-                <div class="row">
-                    <div class="col-md-12" >
-                        <h2 class="subtititulo">Búsqueda Avanzada</h2>
-                    </div>
-                </div>
-                <!--<div class="row">
-                    <div class="col-xs-12">
-                        <select form="form-control" id="operador_filtro_inmueble">
-                            <option value="1">ARRIENDO</option>
-                            <option value="5">VENTA</option>
-                            <option value="2">ARRIENDO / VENTA</option>
-                        </select>
-                    </div>
-                </div>-->
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <span>Departamento</span>
-
-                        <select form="form-control" id="depto_filtro_inmueble" onchange="cargar_ciudades_bydepto(this.value)"> 
-                            <option value="0"></option>                     
-                        </select>
-                        <span>Ciudad</span>
-                        <select form="form-control" id="ciudad_filtro_inmueble" onchange="cargar_zonas_byciudad(this.value)">
-                            <option value="0"></option>
-                        </select>
-
-                        <span>Zona</span>
-                        <select form="form-control" id="zona_filtro_inmueble" onchange="cargar_barrios_byzonas(this.value)">
-                            <option value="0"></option>
-                        </select>
-
-                        <span>Barrio</span>
-                        <select form="form-control" id="barrios_filtro_inmueble">     
-                        <option value="0"></option>                     
-                        </select>
-
-                        <span>Tipo Inmueble</span>
-                        <select form="form-control" id="tipoinmueble_filtro_inmueble">
-                           <option value="0"></option>
-                        </select>
-                    </div>
-
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-6">
-                        <span>Precio Mínimo</span>
-                        <input type="number" name="" id="preciominimo_filtro_inmueble" class="form-control" value="0" >
-                    </div>
-                    <div class="col-xs-6">
-                        <span>Precio Máximo</span>
-                        <input type="number" name="" id="preciomaximo_filtro_inmueble" class="form-control" value="0" > 
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-4">
-                        <span>Habitaciones</span>
-                        <select form="form-control" id="habitaciones_filtro_inmueble">
-                            <option value="0"></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-4">
-                        <span>Baños</span>
-                        <select form="form-control" id="banos_filtro_inmueble">
-                            <option value="0"></option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-4">
-                         <span>Garaje<span>
-                        <select form="form-control"  id="garaje_filtro_inmueble">
-                            <option value="0"></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button class="btn-amarillo" type="button" id="btn-filtrar-inmuebles" style="white-space: normal; font-size: 16px !important; text-align: center; width: 100%;     font-weight: bold !important;">
-                        FILTRAR 
-                    </button>
-                    </div>
-                </div>
-
-            </form>
+            
         </div>
     </div>
     <!-- FIN -->

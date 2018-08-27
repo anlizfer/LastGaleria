@@ -81,7 +81,7 @@ $("#btn_chat").click(function(){
 });
 
 $("#btnwhatsapp").click(function(){
-  window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria",'_system');
+  window.open("https://api.whatsapp.com/send?phone=57"+getWhatsapp()+"&text=Hola%20me%20podrías%20dar%20más%20información%20acerca%20de",'_system');
 })
 
 
@@ -100,7 +100,7 @@ function getWhatsapp()
     $(".numero_whatsapp").html(""+obj_asesores[ind].whatsappAsesor);
 
     $(".btn_numero_whatsapp").click(function(){
-      window.open("https://api.whatsapp.com/send?phone=57"+obj_asesores[ind].whatsappAsesor+"&text=Hola%20M%C3%A1s%20informaci%C3%B3n%20acerca%20de%20Galer%C3%ADa%20Inmobiliaria",'_system');
+      window.open("https://api.whatsapp.com/send?phone=57"+obj_asesores[ind].whatsappAsesor+"&text=Hola%20me%20podrías%20dar%20más%20información%20acerca%20de",'_system');
     })
 
     return obj_asesores[ind].whatsappAsesor;
@@ -217,6 +217,8 @@ function ajax_login(email_log,password_log,tip){
           $("#txtnombre_registro_update").val(""+datos_usuario[0].nombreusuario);
           $("#txtapellido_registro_update").val(""+datos_usuario[0].apellidousuario);
           $("#txttelefono_registro_update").val(""+datos_usuario[0].telefonousuario);
+
+          $("#txtidentificacion_registro_update").val(""+datos_usuario[0].identificadorusuario);
 
 
 
@@ -527,6 +529,7 @@ var txtnombre_registro_update="";
 var txtapellido_registro_update="";
 var txtpassword_registro_update="";
 var txttelefono_registro_update="";
+var txtidentificacion_registro_update="";
 
 
 function enviar_formulario_modificar(){
@@ -535,6 +538,7 @@ function enviar_formulario_modificar(){
   txtapellido_registro_update=""+$("#txtapellido_registro_update").val();
   txtpassword_registro_update=""+$("#txtpassword_registro_update").val();
   txttelefono_registro_update=""+$("#txttelefono_registro_update").val();
+  txtidentificacion_registro_update=""+$("#txtidentificacion_registro_update").val();
 
   var request = $.ajax({
     url: servidor_ws+"/guardar_usuario_app.php",
@@ -545,7 +549,8 @@ function enviar_formulario_modificar(){
             apellidousuario:""+txtapellido_registro_update,
             emailusuario:""+txtemail_registro_update,
             telefonousuario:""+txttelefono_registro_update,
-            passwordusuario:""+txtpassword_registro_update
+            passwordusuario:""+txtpassword_registro_update,
+            identificadorusuario:""+txtidentificacion_registro_update
           }
     });
 
@@ -588,6 +593,7 @@ var txtnombre_registro="";
 var txtapellido_registro="";
 var txtpassword_registro="";
 var txttelefono_registro="";
+var txtidentificacion_registro="";
 var idusuario="";
 var tipousuario="0";
 
@@ -598,6 +604,8 @@ function enviar_formulario_registro(){
   txtapellido_registro=""+$("#txtapellido_registro").val();
   txtpassword_registro=""+$("#txtpassword_registro").val();
   txttelefono_registro=""+$("#txttelefono_registro").val();
+  txtidentificacion_registro=""+$("#txtidentificacion_registro").val();
+
 
 
   var request = $.ajax({
@@ -609,7 +617,8 @@ function enviar_formulario_registro(){
             apellidousuario:""+txtapellido_registro,
             emailusuario:""+txtemail_registro,            
             telefonousuario:""+txttelefono_registro,
-            passwordusuario:""+txtpassword_registro
+            passwordusuario:""+txtpassword_registro,
+            identificadorusuario:""+txtidentificacion_registro
           }
     });
 
@@ -624,6 +633,9 @@ function enviar_formulario_registro(){
           localStorage.setItem("passwordusuario", ""+txtpassword_registro);
           localStorage.setItem("emailusuario", ""+txtemail_registro);
           
+          var email_login=""+localStorage.emailusuario;
+          var password_login=""+localStorage.passwordusuario;
+          ajax_login(email_login,password_login,"0");
 
           //abrir_mensajes("Registro con Éxito",txtnombre_registro+" Bienvenido a Galería Inmobiliaria");
 
@@ -695,6 +707,33 @@ $("#btnnotificaciones_main,.btnoticias_vert").click(function(){
     abrir_form_notificaciones();
 });
 
+
+$(".btncerrar_vert").click(function(){
+     $(".nombre-usuario-registrado").html("");
+     localStorage.setItem("idusuario", "");
+     localStorage.setItem("passwordusuario", "");
+     localStorage.setItem("emailusuario", "");
+
+     $("#codigo_usuario").html("");
+
+
+     $("#txtemail_registro_update").val("");
+     $("#txtnombre_registro_update").val("");
+     $("#txtapellido_registro_update").val("");
+     $("#txttelefono_registro_update").val("");
+
+     $("#txtidentificacion_registro_update").val("");
+
+     idusuario="";
+     tipousuario="";
+
+      $("#contain-log").hide();
+
+      $("#nombre-login").html("");
+
+     console.log("Cerrar Sesión");
+
+});
 
 
 
@@ -1052,6 +1091,12 @@ function cargar_mapa(lat,long){
       });
     }
   }
+
+
+ $('html, body').animate({
+    scrollTop: $("#listado-imuebles").offset().top-80
+ }, 1000);
+
 
 }
 
@@ -1456,6 +1501,14 @@ function cargar_inmuebles_destacados_api(tip,pag){
                    valor_inm=""+datos_inmuebles_listado[k].Canon;
                 }
 
+                if(""+datos_inmuebles_listado[k].idEstado!="2"){
+                    continue;
+                }
+
+                if(""+datos_inmuebles_listado[k].foto1==""){
+                    continue;
+                }
+
                 cadena_inmuebles+='<div class="item-menu">';
                 cadena_inmuebles+='<div class="image-item-menu" style="background-image: url('+datos_inmuebles_listado[k].foto1+'); " onclick="abrir_form_detalleinmueble(&#39;'+datos_inmuebles_listado[k].Codigo_Inmueble+'&#39;)">';
                 cadena_inmuebles+='<div class="container" style="padding: 0px;">';
@@ -1582,6 +1635,12 @@ function cargar_inmuebles_destacados_api(tip,pag){
           $("#listado-imuebles").html(cadena_inmuebles);
 
           cargar_mapa(datos_inmuebles_listado[0].latitud,datos_inmuebles_listado[0].longitud);
+
+          $('html, body').animate({
+                scrollTop: $("#listado-imuebles").offset().top-80
+            }, 1000);
+
+
 
       }
           
@@ -1777,6 +1836,13 @@ function abrir_pagina_contacto(){
 }
 
 
+$("#frmbuscaravanzado").submit(function( event ) {
+    event.preventDefault();
+     cargar_inmuebles_destacados_api("0",0); 
+});
+
+
+
 $( "#form-contacto" ).submit(function( event ) {
   event.preventDefault();
      enviar_mensaje();
@@ -1885,7 +1951,7 @@ function get_convenios(){
 
               if(favorito_sel=="SI"){
                   if(obj_convenio[i].favorito==""){
-                      break;
+                      continue;
                   }
               }
 
@@ -2133,11 +2199,14 @@ function cargar_mapa_convenio_listado(){
 
      
      for(var i=0;i<obj_convenio.length;i++){
+
+        console.log("Entra "+obj_convenio[i].latitudFabricante);
           var beachMarker;
           var myLatLng2 = new google.maps.LatLng(obj_convenio[i].latitudFabricante,obj_convenio[i].longitudFabricante);
       
           beachMarker = new google.maps.Marker({
               position: myLatLng2,
+              icon:"assets/img/localizador.png",
               map: map,              
               title: ''
           });
