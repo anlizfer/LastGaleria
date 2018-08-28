@@ -407,7 +407,7 @@
 
 
         .vcard_btn {
-            text-transform: capitalize;
+           
             font-weight: 600;
             font-size: 13px;
             letter-spacing: 0.5px;
@@ -421,6 +421,11 @@
             margin-right: 20px;
             box-shadow: 0px 1px 0px #888888;
             color: #fff !important;
+        }
+
+
+        .panel-default>.panel-heading {
+            background-color: #f8ea27 !important;
         }
 
 
@@ -454,6 +459,7 @@
                 
            
                 <button type="button" class="btn btn-default btn-menu-vertical btn-lg btninmuebles_vert">INMUEBLES</button>
+                <button type="button" class="btn btn-default btn-menu-vertical btn-lg btnpagosenlinea_vert">PAGOS EN LÍNEA</button>
                 <button type="button" class="btn btn-default btn-menu-vertical btn-lg btnconvenios_vert">CONVENIOS</button>
                 <button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnacerca_vert">ACERCA DE GALERÍA INMOBILIARIA</button>
                 <button type="button" class="btn btn-default  btn-menu-vertical btn-lg btnusuario_vert">USUARIO</button>
@@ -655,7 +661,7 @@
             </div>                
         </div>
 
-        <div class="container padding-container" style="width: 100%; background-color: #000 !important; background-image: url(assets/img/splash_galeria_inmobiliaria.jpg); background-position: center; background-size: cover;" >
+        <div class="container padding-container" style="width: 100% !important; background-color: #000 !important; background-image: url(assets/img/splash_galeria_inmobiliaria.jpg); background-position: center; background-size: cover;" >
 
             <div >
                 
@@ -693,9 +699,24 @@
                             </div>
 
 
-                             <div class="col-xs-6" style="text-align: center;">
+                            <div class="col-xs-6" style="text-align: center;">
                                 <a href="#" class="btnmenuprincipal" id="btnnotificaciones_main">
                                     <img src="assets/img/menu_principal_notificaciones.png" style="width: 100%; margin-bottom:20px;">
+                                </a>
+
+                            </div>
+
+
+                            <div class="col-xs-6" style="text-align: center;" id="cv_arrendatarios">
+                                <a href="#" class="btnmenuprincipal" id="btnarrendatarios_main">
+                                    <img src="assets/img/menu_principal_arrendatarios.png" style="width: 100%; margin-bottom:20px;">
+                                </a>
+
+                            </div>
+ 
+                             <div class="col-xs-6" style="text-align: center;  display: none;" id="cv_propietarios">
+                                <a href="#" class="btnmenuprincipal" id="btnpropietarios_main">
+                                    <img src="assets/img/menu_principal_propietarios.png" style="width: 100%; margin-bottom:20px;">
                                 </a>
 
                             </div>
@@ -746,16 +767,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <strong>Dirección 2: </strong><br />
-                                    <a class="btn vcard_btn" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
-                                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">Calle 31a # 26 - 36 Local 2 (Cañaveral)</span>
-
-                                    </a>   
-                                </div>
-                            </div>
-
+                            
                              <div class="row">
                                 <div class="col-md-12">
                                     <strong>WhatsApp: </strong><br />
@@ -1722,264 +1734,315 @@
             
         </div>
 
-        <div class="container padding-container" style="position: relative; float: left;  padding-top: 5px;">
+        <div class="container padding-container" style="position: relative; float: left;  padding-top: 5px; width: 100% !important;">
 
-                <a href="#"  class="btncontacto">
-                    <img src="assets/img/boton_mensaje.png" style="width: 60px; position: absolute;     top: -56px;  right: 12px;">
-                </a>
-                
-
-           
-                <div class="row">
-                    <div class="col-md-12" >
-                        <h2 class="subtititulo">QUIENES SOMOS?</h2>
-                    </div>
-                </div>
-
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <p style="text-align: justify;">
-                            Galería Inmobiliaria fue creada en el año 1994, aprovechando la experiencia de sus fundadores en el área de la construcción y profesiones afines a la finca raíz y la administración. Nació con dedicación exclusiva a las ventas, pero luego de un tiempo, en el año de 1.997 incursiono en la promoción y administración de inmuebles en arrendamiento. A partir de Septiembre del año 2010 se convirtió a SAS con Nit. 900383855-8
-                        </p>
-
-                        <p style="text-align: justify;">
-                            Se encuentra afiliada a la Lonja de Propiedad Raíz de Santander y trabaja de la mano de las principales aseguradoras y afianzadoras.
-                        </p>
-
-                        <p style="text-align: justify;">
-                            El estricto cumplimiento de nuestras obligaciones con los propietarios, la satisfacción de la gran mayoría de nuestros  arrendatarios, un equipo humano comprometido y conocedor de sus funciones, el uso de la tecnología, una planta física acogedora, entre otros, ha sido fundamental para que nuestros clientes perciban la calidad de nuestros servicios y nos ubiquen en un lugar de privilegio, catalogándonos como una de las oficinas de mayor crecimiento en la ciudad. Igualmente lo ha hecho Star For Quality quien nos han otorgado una mención especial en la Convención International en Ginebra {Suiza] junto a 57 líderes de distintas nacionalidades del mundo, incluidos tres Latinoamericanos. Es por eso que estamos muy agradecidos y con una decisión firme de convertir a Galería Inmobiliaria en una compañía competitiva como la desean nuestros clientes. Para ello contamos con lo más importante, que es la confianza que nos brindan quienes utilizan nuestros servicios y el deseo nuestro para seguir mejorando día tras día.
-                        </p>
-
-                    </div>
-                </div>
-
-
-                 <div class="row">
-                    <div class="col-md-12" >
-                        <h2 class="subtititulo">MISIÓN</h2>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <p style="text-align: justify;">
-                           Ofrecer seguridad, confianza y respaldo a nuestros clientes, por medio de la intermediación en negocios inmobiliarios.
-                        </p>
+                        
 
-                      
-
-                    </div>
-                </div>
-
-
-
-                 <div class="row">
-                    <div class="col-md-12" >
-                        <h2 class="subtititulo">VISIÓN</h2>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <p style="text-align: justify;">
-                           Para el año 2020, ser reconocidos como la inmobiliaria líder en confiabilidad, servicio y atención al cliente en la ciudad de Bucaramanga y su área metropolitana.
-                        </p>
-
-                      
-
-                    </div>
-                </div>
-
-
-                 <div class="row margin-top-15">
-                    <div class="col-md-12">
-                        <button class="btn-amarillo btncontacto" >CONTÁCTENOS</button>
-                    </div>
-                </div>
-
-
-
-               
-
-            
-          
-        </div>
-    </div>
-    <!-- FIN -->
-
-
-
-    <!-- PAGINA 10 Contacto -->
-    <div data-role="page" id="pagina-contacto" class="pg-indv">
-
-        <div class="bar-sup-principal">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-4">
-                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
-                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px; background-color: #000;">
-                        </a>
-                    </div>
-
-                    <div class="col-xs-4">
-                       
-                    </div>
-                </div>
-            </div>                
-        </div>
-
-        <div class="container padding-container">
-           
-                <div class="row">
-                    <div class="col-md-12" >
-                        <h2 class="subtititulo">CONTÁCTENOS</h2>
-                    </div>
-                </div>
-
-                
-                <div class="row">
-                    <div class="col-md-12" >
-                       
-
-                          <form id="form-contacto">
-                                                      
-                            <div class="row">
-                                <div class="col-md-12" >
-                                    <input type="text" class="form-control input-control"  placeholder="* Nombre " required id="txtnombre_contacto">
-                                </div>
+                        
+                        <div class="panel-group" id="accordion">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">QUIENES SOMOS?</h2>
+                               </a>
+                              </h4>
                             </div>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                              <div class="panel-body">
+                                  
+
+                                    <p style="text-align: justify;">
+                                        Galería Inmobiliaria fue creada en el año 1994, aprovechando la experiencia de sus fundadores en el área de la construcción y profesiones afines a la finca raíz y la administración. Nació con dedicación exclusiva a las ventas, pero luego de un tiempo, en el año de 1.997 incursiono en la promoción y administración de inmuebles en arrendamiento. A partir de Septiembre del año 2010 se convirtió a SAS con Nit. 900383855-8
+                                    </p>
+
+                                    <p style="text-align: justify;">
+                                        Se encuentra afiliada a la Lonja de Propiedad Raíz de Santander y trabaja de la mano de las principales aseguradoras y afianzadoras.
+                                    </p>
+
+                                    <p style="text-align: justify;">
+                                        El estricto cumplimiento de nuestras obligaciones con los propietarios, la satisfacción de la gran mayoría de nuestros  arrendatarios, un equipo humano comprometido y conocedor de sus funciones, el uso de la tecnología, una planta física acogedora, entre otros, ha sido fundamental para que nuestros clientes perciban la calidad de nuestros servicios y nos ubiquen en un lugar de privilegio, catalogándonos como una de las oficinas de mayor crecimiento en la ciudad. Igualmente lo ha hecho Star For Quality quien nos han otorgado una mención especial en la Convención International en Ginebra {Suiza] junto a 57 líderes de distintas nacionalidades del mundo, incluidos tres Latinoamericanos. Es por eso que estamos muy agradecidos y con una decisión firme de convertir a Galería Inmobiliaria en una compañía competitiva como la desean nuestros clientes. Para ello contamos con lo más importante, que es la confianza que nos brindan quienes utilizan nuestros servicios y el deseo nuestro para seguir mejorando día tras día.
+                                    </p>
 
 
-                            <div class="row">
-                                <div class="col-md-12" >
-                                    <input type="email" class="form-control input-control"  placeholder="* Correo Electrónico" required id="txtemail_contacto">
-                                </div>
+
+
+                              </div>
                             </div>
-
-                           
-
-                            <div class="row">
-                                <div class="col-md-12" >
-                                    <input type="number" class="form-control input-control" placeholder="Número Telefónico" id="txttelefono_contacto">
-                                </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">MISIÓN</h2>
+                                </a>
+                              </h4>
                             </div>
+                            <div id="collapse2" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                   <p style="text-align: justify;">
+                                        Ofrecer seguridad, confianza y respaldo a nuestros clientes, por medio de la intermediación en negocios inmobiliarios.
+                                    </p>
 
-
-                             <div class="row">
-                                <div class="col-md-12" >
-                                    <textarea  class="form-control input-control" placeholder="Mensaje" id="txtmensaje_contacto"></textarea>
-                                </div>
+                              </div>
                             </div>
+                          </div>
+                          
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">VISIÓN</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                  <p style="text-align: justify;">
+                                   Para el año 2020, ser reconocidos como la inmobiliaria líder en confiabilidad, servicio y atención al cliente en la ciudad de Bucaramanga y su área metropolitana.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">ARRIENDOS</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                  <p style="text-align: justify;">
+                                   Administramos inmuebles en arrendamiento, tanto para destinación residencial como comercial, ofreciendo a nuestros clientes seguridad, confianza y respaldo, soportados en sólidos principios empresariales. Nos encontramos afiliados a la LONJA DE PROPIEDAD RAIZ DE SANTANDER y avalamos nuestros contratos con las aseguradoras de la región, siendo uno de nuestros principales beneficios  el respaldo del pago del canon de arrendamiento y administración,  mediante pólizas de aseguramiento frente a cualquier eventual incumplimiento.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    De igual manera contamos con una plataforma tecnológica que permite tanto a propietarios como arrendatarios acceder a nuestros servicios a través de la web, facilitando los trámites, evitando los desplazamientos a las entidades bancarias y obteniendo información en tiempo real.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    Realizamos la promoción de nuestros inmuebles a través de los principales medios impresos, redes sociales y demás herramientas tecnológicas de manera gratuita.
+                                </p>
+
+
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">VENTA</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse5" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                
+                                <p>
+                                    <h2 style="margin: 0px; padding: 0px;" >¿Qué es MLS?</h2>
+                                    <h3 style="margin: 0px; padding: 0px;" >Más Beneficios</h3>
+                                </p>
+                                
+                                <p style="text-align: justify;">
+                                  <img src="assets/img/subseccion_23.jpg" style="width: 100%;" alt="">
+                                </p>
+                                
+
+
+                                <p style="text-align: justify;">
+                                    Con MLS y la Lonja de inmueble Raíz de Santander usted puede comprar y/o vender inmuebles sin riesgos.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                   Al momento de comprar, usted tiene disponible una amplia base de datos de inmuebles que le permitirán ahorrar tiempo y dinero.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    Con la promesa de seguridad y apoyo, usted encontrará el inmueble indicada gracias a la disposición del mejor equipo de profesionales.
+                                </p>
+
+                                 <p style="text-align: justify;">
+                                    Si lo suyo es vender su inmueble, usted tiene a su disposición a todo el equipo de expertos de las inmobiliarias pertenecientes a MLS Santander y a la Lonja de inmueble Raíz, trabajando para lograr su mismo objetivo, haciéndole más fácil la venta de su inmueble.
+                                </p>
+
+                                 <p style="text-align: justify;">
+                                    Usted sólo hace el trato con un agente inmobiliario de MLS Santander, pero tiene a toda una asociación trabajando a su servicio.
+                                </p>
+
+                                 <p style="text-align: justify;">
+                                    Su inmueble está bajo la responsabilidad de personas serias que lo mantendrán informado sobre los avances en la negociación de su inmueble
+
+                                </p>
+
+                                 <p style="text-align: justify;">
+                                    El trabajo colaborativo de todas las inmobiliarias inscritas a MLS Santander mejora la eficiencia del mercado de propiedades.
+                                 </p>
+
+                                <p style="text-align: justify;">
+                                    Mas información <a href="http://www.mlssantander.com/">www.mlssantander.com</a>
+                                </p>
+
+                                 
+
+
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">REPARACIONES Y REMODELACIONES</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse5" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                  <p style="text-align: justify;">
+                                   Ofrecemos mantenimiento preventivo y correctivo  a inmuebles, de forma ágil y oportuna, con el fin de garantizar las condiciones necesarias de habitabilidad del inmueble, por medio de personal idóneo y capacitado en las distintas especialidades como; construcción, albañilería, pintura, plomería entre otras.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    Garantizamos la calidad de los materiales, la mano de obra y los  resultados de nuestro servicio,  a un bajo costo.
+                                </p>
+
+                              </div>
+                            </div>
+                          </div>
+
+
+                           <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">AVALÚOS</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse6" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                  <p style="text-align: justify;">
+                                   Realizamos avalúos comerciales de inmuebles para venta o arrendamiento por medio de un personal especializado y altamente calificado, avalado por la LONJA DE PROPIEDAD RAIZ DE SANTANDER.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    Elaboramos y entregamos un informe detallado de la situación real del inmueble, del área donde se encuentra ubicado y de las condiciones actuales del mercado, con el fin de valorar adecuadamente su patrimonio.
+                                </p>
+
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">PRESTAMOS A PROPIETARIOS</h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse7" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                  <p style="text-align: justify;">
+                                   Otorgamos créditos  a propietarios de inmuebles bajo nuestra administración, de forma ágil, oportuna y sin trámites,  efectuando la aprobación y desembolso en un tiempo máximo de 24 (Veinticuatro) horas hábiles, a una tasa de interés competitiva frente al mercado.
+                                </p>
+
+                                <p style="text-align: justify;">
+                                    Y sus cuotas se difieren del canon de arrendamiento debitando automáticamente de su cuenta el valor de la cuota pactada
+                                </p>
+
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                            <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                                    <h2 style="margin: 0px; padding: 0px;" class="subtititulo">DESCARGAR FORMULARIOS: </h2>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapse9" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                <p style="text-align: justify;">
+                                    Descarga el formulario que necesites diligenciar: 
+                                </p>
+                                <p style="text-align: justify;">
+                                    <a href="https://www.galeriainmobiliaria.com.co/media/files/Formulario_El_Libertador.pdf" target="_system" >
+                                        <img src="assets/img/forms01.jpg" style="width: 100%; margin-bottom: 10px;" alt="">
+                                    </a>
+
+                                    <a href="https://www.galeriainmobiliaria.com.co/media/files/Formulario_Fianzacredito.pdf" target="_system" >
+                                        <img src="assets/img/forms02.jpg" style="width: 100%; margin-bottom: 10px;" alt="">
+                                    </a>
+
+                                    <a href="https://www.galeriainmobiliaria.com.co/media/files/FormularioPersonaJuridicaInmofianza.pdf" target="_system" >
+                                        <img src="assets/img/forms03.jpg" style="width: 100%; margin-bottom: 10px;" alt="">
+                                    </a>
+
+                                     <a href="https://www.galeriainmobiliaria.com.co/media/files/FormularioPersonaNaturalInmofianza.pdf" target="_system" >
+                                        <img src="assets/img/forms04.jpg" style="width: 100%; margin-bottom: 10px;" alt="">
+                                    </a>
+                                </p>
+
+                                
+
+                              </div>
+                            </div>
+                          </div>
+                        
+
 
                             
 
 
 
-                          
-
                             
-                          
-                           
-                            <div class="row">
-                                <div class="col-md-12" >
-                                    <button class="btn-amarillo" id="btnenviar_contacto">ENVIAR MENSAJE</button>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <hr style="border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a class="btn-redessociales" href="mailto:gerencia@galeriainmobiliaria.com.co" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
-                                    <img src="assets/img/boton_correo.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">gerencia@galeriainmobiliaria.com.co</span></a>   
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a class="btn-redessociales" href="tel:0376430034" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
-                                        <img src="assets/img/boton_telefono.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">PBX: (+57 7) 643 0034</span>
-                                    </a>   
-
-                                    
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
-                                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">Carrera 36 # 54 - 142 (Cabecera)</span></a>   
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a class="btn-redessociales" style="width: 100%;     margin: .5em 0;     display: inline-block; font-weight: 300;">
-                                        <img src="assets/img/boton_localizador.png" style=" width: 20px; position: absolute; left: 20px;"> <span style="display: inline-block; margin-left: 15px;">Calle 31a # 26 - 36 Local 2 (Cañaveral)</span>
-
-                                    </a>   
-                                </div>
-                            </div>
-
-                             <div class="row">
-                                <div class="col-md-12">
-                                    <a class="btn-redessociales btn_numero_whatsapp" href="#" style=" width: 100%;     margin: .5em 0;     display: inline-block; background-color: #25D366 !important; color:#fff !important; text-align: center;     font-weight: 300; font-size: 25px;">
-                                       <img src="assets/img/icono_whatsapp.png" style=" width: 37px; position: absolute; left: 20px;"> <span class="numero_whatsapp"></span>
-                                    </a>   
-                                </div>
-                            </div>
 
 
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <a  target="_blank" style=" width: 45px !important; margin: .3em 0; display: inline-block; text-align: center;     font-weight: 300; font-size: 25px; height: 45px !important;" href="https://twitter.com/Galeriainmo">
-                                        <img src="assets/img/icono_twitter.png" style="width: 45px;">
-                                    </a>
-                                </div>
-                                <div class="col-xs-2">
-                                    <a    target="_blank" style=" width: 45px !important; margin: .3em 0; display: inline-block; text-align: center;     font-weight: 300; font-size: 25px; height: 45px !important;" href="https://www.facebook.com/galeriainmobiliariasas">
-                                        <img src="assets/img/icono_facebook.png" style="width: 45px;">
-                                    </a>
-                                </div>
-                            </div>
+                        </div>
 
-                             <div class="row">
-                                <div class="col-md-12">
-                                    <hr style="border: 1px solid #dadada;  margin-top: 8px;   margin-bottom: 8px;">
-                                </div>
-                            </div>
-
-                             <div class="row">
-                                <div class="col-md-12">
-                                    <div id="mapa-galeria" class="contain-map" style="width: 100%; display: block;">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </form>
-                      
-                    
 
 
 
                     </div>
                 </div>
 
-               
 
-            
+                           
           
         </div>
     </div>
     <!-- FIN -->
 
+ 
     <!-- PAGINA 12 Listado Notificaciones -->
     <div data-role="page" id="pagina-listado-notificaciones" class="pg-indv">
 
@@ -2052,7 +2115,7 @@
             <img src="assets/img/logo_galeria_inmobiliaria_horizontal.png" style="width:180px;">
         </div>
 
-        <div class="container padding-container" style="padding-top: 0px; float: left; width: 100%;">
+        <div class="container padding-container" style="padding-top: 0px; float: left; width: 100% !important;">
             <form>                
                 <div class="row">
                     <div class="col-xs-10" style="padding-right: 0px;" >

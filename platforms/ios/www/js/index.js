@@ -39,6 +39,8 @@ var app = {
 
         var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    get_noticias();
+    abrir_form_notificaciones();
          
   };
 
@@ -224,6 +226,16 @@ function ajax_login(email_log,password_log,tip){
 
           idusuario=""+datos_usuario[0].idusuario;
           tipousuario=""+datos_usuario[0].tipousuario;
+
+
+          if(tipousuario=="4"){
+            $("#cv_arrendatarios").hide();
+            $("#cv_propietarios").show();
+          }else{
+            $("#cv_arrendatarios").show();
+            $("#cv_propietarios").hide();
+          }
+
 
           $("#contain-log").show();
 
@@ -682,6 +694,12 @@ Descripcion:  Formulario Menu Principal
 
 
 
+
+$( ".btnpagosenlinea_vert" ).click(function() {
+     window.open("https://www.e-collect.com/customers/GaleriaInmobiliaria.htm","_blank");
+});
+
+
 $( "#btnmenu_inmueble,.btninmuebles_vert" ).click(function() {
     abrir_form_inmuebles();
 });
@@ -706,6 +724,20 @@ $("#btnnotificaciones_main,.btnoticias_vert").click(function(){
     get_noticias();
     abrir_form_notificaciones();
 });
+
+
+$("#btnarrendatarios_main").click(function(){
+     window.open("https://www.simiinmobiliarias.com/base/simired/simidocs/index.php?inmo=704&tipo=2","_blank");
+});
+
+$("#btnpropietarios_main").click(function(){
+     window.open("https://www.simiinmobiliarias.com/base/simired/simidocs/index.php?inmo=704&tipo=1","_blank");
+});
+
+
+
+
+
 
 
 $(".btncerrar_vert").click(function(){
