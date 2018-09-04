@@ -185,6 +185,7 @@ $("#btncontinuar").click(function(){
 
 
 var datos_usuario=new Object();
+var datos_tipousuario=new Object();
 
 function ajax_login(email_log,password_log,tip){
   var request = $.ajax({
@@ -201,6 +202,11 @@ function ajax_login(email_log,password_log,tip){
   request.done(function(msg) {            
     //var obj = jQuery.parseJSON(msg);  
      datos_usuario=msg.datos;
+
+     datos_tipousuario=msg.tipousuario;
+
+
+
       if(msg.status=="ok"){
 
           //abrir_mensajes("Bienvenido",datos_usuario[0].nombreusuario+" Bienvenido a Galería Inmobiliaria");
@@ -223,25 +229,51 @@ function ajax_login(email_log,password_log,tip){
           $("#txtidentificacion_registro_update").val(""+datos_usuario[0].identificadorusuario);
 
 
+          var roles_sel=datos_usuario[0].roles;
+
+          var arra_roles=Array();
+
+          arra_roles=roles_sel.split(",");
+
+          for(var j=0;j<arra_roles.length;j++){
+              $("#chk"+arra_roles[j]+"_update").prop("checked",true);
+          }
+
+         
+
+          $("#cv_propietarios").hide();
+          $("#cv_arrendatarios").hide();
+          $("#cv_pagosonline").hide();
 
           idusuario=""+datos_usuario[0].idusuario;
-          tipousuario=""+datos_usuario[0].tipousuario;
+
+          for(var j=0;j<datos_tipousuario.length;j++){
+            tipousuario+=""+datos_tipousuario[j].idcategoria+",";
+
+            if(datos_tipousuario[j].idcategoria=="3"){
+              $("#cv_propietarios").show();
+            }
+
+            if(datos_tipousuario[j].idcategoria=="1"){
+              $("#cv_arrendatarios").show();
+              $("#cv_pagosonline").show();
+            }
 
 
-          if(tipousuario=="4"){
-            $("#cv_arrendatarios").hide();
-            $("#cv_propietarios").show();
-          }else{
-            $("#cv_arrendatarios").show();
-            $("#cv_propietarios").hide();
           }
+
+          tipousuario=tipousuario.slice(0,-1);
+
+                 
+
+          
 
 
           $("#contain-log").show();
 
           $("#nombre-login").html(""+datos_usuario[0].nombreusuario+" "+datos_usuario[0].apellidousuario);
 
-          enviar_tag(datos_usuario[0].tipousuario);//ASIGNA EL TAG tipousuario=1 al usuario en onesignal
+          enviar_tag(tipousuario);//ASIGNA EL TAG tipousuario=1 al usuario en onesignal
 
                     
 
@@ -609,6 +641,9 @@ var txtidentificacion_registro="";
 var idusuario="";
 var tipousuario="0";
 
+var roles="";
+
+
 
 function enviar_formulario_registro(){
   txtemail_registro=""+$("#txtemail_registro").val();
@@ -617,6 +652,27 @@ function enviar_formulario_registro(){
   txtpassword_registro=""+$("#txtpassword_registro").val();
   txttelefono_registro=""+$("#txttelefono_registro").val();
   txtidentificacion_registro=""+$("#txtidentificacion_registro").val();
+
+  var roles="";
+
+  if($("#chk1").is(":checked")){
+      roles+="1,";
+  }
+
+  if($("#chk2").is(":checked")){
+      roles+="2,";
+  }
+
+  if($("#chk3").is(":checked")){
+      roles+="3,";
+  }
+
+  if($("#chk4").is(":checked")){
+      roles+="4,";
+  }
+
+
+  roles = roles.slice(0, -1); 
 
 
 
@@ -630,7 +686,8 @@ function enviar_formulario_registro(){
             emailusuario:""+txtemail_registro,            
             telefonousuario:""+txttelefono_registro,
             passwordusuario:""+txtpassword_registro,
-            identificadorusuario:""+txtidentificacion_registro
+            identificadorusuario:""+txtidentificacion_registro,
+            roles:""+roles
           }
     });
 
@@ -695,7 +752,7 @@ Descripcion:  Formulario Menu Principal
 
 
 
-$( ".btnpagosenlinea_vert" ).click(function() {
+$( ".btnpagosenlinea_vert,#btnmenu_pagosenlinea" ).click(function() {
      window.open("https://www.e-collect.com/customers/GaleriaInmobiliaria.htm","_blank");
 });
 
@@ -870,7 +927,11 @@ $( "#btnlistadoinmueble" ).click(function() {
 var dato_inmueble=Object();
  var ruta_inmueble="";
 
+ var codigo_inmueble_sel="";
+
 function abrir_form_detalleinmueble(id_inmueble){  
+
+  codigo_inmueble_sel=id_inmueble;
 
   
   /*$.mobile.changePage("#pagina-detalle-inmueble",{transition:transicion,changeHash: true});
@@ -1763,6 +1824,30 @@ function get_noticias(){
            
           } 
 
+          var cadena_asesores="";
+          for(var i=0;i<obj_asesores.length;i++){
+            
+            cadena_asesores+='<div style="padding-top: 15px; padding-bottom: 15px; margin-bottom:10px; width: 100%; border: 1px solid #ccc; border-radius: 8px; text-align: center; background-position: center; background-size: cover; padding-left: 40px; padding-right: 40px; background-color: #fff;">';
+            cadena_asesores+='<div style="width: 100%;  height: 300px; margin-bottom: 10px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url(http://galeria.aedigital.co/images/asesores/'+obj_asesores[i].imagenasesor+')">';
+            cadena_asesores+='</div> ';
+            cadena_asesores+='<h3>'+obj_asesores[i].nombreAsesor+'</h3>';
+            cadena_asesores+='<a class="btn btn-default" href="javascript:abrir_whatsapp_inmueble('+obj_asesores[i].whatsappAsesor+')" style="width: 100%; margin-bottom: 10px;">';
+            cadena_asesores+='<strong>WhatsApp:</strong> '+obj_asesores[i].whatsappAsesor+'';
+            cadena_asesores+='</a>';
+            cadena_asesores+='<a class="btn btn-default" href="tel:'+obj_asesores[i].whatsappAsesor+'" style="width: 100%; margin-bottom: 10px;">';
+            cadena_asesores+='<strong>Llamar:</strong> '+obj_asesores[i].whatsappAsesor+'';
+            cadena_asesores+='</a>';
+            cadena_asesores+='<a class="btn btn-default" href="mailto:'+obj_asesores[i].emailAsesor+'" style="width: 100%; margin-bottom: 10px;">';
+            cadena_asesores+='<strong>Email:</strong> '+obj_asesores[i].emailAsesor+'';
+            cadena_asesores+='</a>';
+            cadena_asesores+='</div>';
+            
+           
+          }
+     
+
+          $("#lt_asesores").html(cadena_asesores);
+
           $("#listado-noticias").html(cadena_noticias);
 
       }else{
@@ -1774,6 +1859,10 @@ function get_noticias(){
     request.fail(function(jqXHR, textStatus) {
        abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
     });
+}
+
+function abrir_whatsapp_inmueble(num_wha){
+  window.open("https://api.whatsapp.com/send?phone=57"+num_wha+"&text=Hola%20me%20podrías%20dar%20más%20información%20acerca%20del%20inmueble%20con%20código%20"+codigo_inmueble_sel,'_system');
 }
 
 function get_noticias_detalle(idnoticia){
