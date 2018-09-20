@@ -364,6 +364,7 @@
             border-bottom: 1px solid #565858;
 
             font-weight: 100;
+                font-size: 14px;
 
         }
 
@@ -519,8 +520,8 @@
 
 
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <div class="modal-footer" style="text-align: left;">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -666,6 +667,127 @@
     </div><!-- /.modal -->
 
     <!-- FIN -->
+
+    <!-- PAGINA 1 LOGIN -->
+    <div data-role="page" id="pagina-login" class="pg-indv">
+
+        <div class="bar-sup-principal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
+                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px; background-color: #000;">
+                        </a>
+                    </div>
+
+                    <div class="col-xs-8">
+                        <!--<button class="btn-right" id="btnomitir">Omitir</button>-->
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="container padding-container">
+
+            <div id="contain-log" style="display: none;">
+                <center>
+                    
+                    <h1 id="nombre-login"></h1>
+                    <h4>Tu sesión está iniciada</h4>
+
+                    <button class="btn-negro" id="btncontinuar">CONTINUAR</button>
+
+                    <div class="row">
+                    <div class="col-md-12">
+                        <hr style="    border: 1px solid #dadada; ">
+                    </div>
+                </div>
+
+                </center>
+                
+            </div>
+
+            <form id="form-login">
+                <div class="row" >
+                    <div class="col-md-12">
+                        <input type="text" class="form-control input-control" name="" placeholder="Email / Identificación" id="txtemail_login" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="password" class="form-control input-control" name="" placeholder="Contraseña" id="txtpassword_login" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" id="btn-ingresar" class="pull-right btn-negro" value="INGRESAR">
+                    </div>
+                </div>
+
+            </form>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="pull-right btn-transparent" onclick="ir_lost_pass()">Olvidaste tu Contraseña</button>
+                </div>
+            </div>
+            
+            <!--
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Facebook</button>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Twitter</button>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-redessociales">Acceder con Google</button>   
+                </div>
+            </div>
+
+            -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <hr style="    border: 1px solid #dadada; ">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="h3-page">No estás Registrado?</h3>
+                </div>
+            </div>
+
+            <div class="row margin-top-15">
+                <div class="col-md-12">
+                    <button class="btn-amarillo" onclick="ir_registro()">REGISTRARSE</button>
+                </div>
+            </div>
+
+            <div class="row margin-top-15">
+                <div class="col-md-12">
+                    <p class="texto-gris-app">Al registrarte, aceptas nuestras <br />Condiciones y Políticas de Privacidad</p>
+                </div>
+            </div>
+
+
+            
+            
+
+
+        </div>
+    </div>
+    <!-- fin -->
 
     <!-- PAGINA 5 Menu Principal -->
     <div data-role="page" id="menu-principal" class="pg-indv" style="background-color:#fff;">
@@ -828,126 +950,7 @@
     </div>
     <!-- FIN -->
     
-    <!-- PAGINA 1 LOGIN -->
-    <div data-role="page" id="pagina-login" class="pg-indv">
-
-        <div class="bar-sup-principal">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-4">
-                         <a href="#" class="btnpanelsuperior btnatras" style="float: left;">
-                            <img src="assets/img/boton_flecha_atras.png" style="width: 30px; margin-top: 3px; background-color: #000;">
-                        </a>
-                    </div>
-
-                    <div class="col-xs-8">
-                        <!--<button class="btn-right" id="btnomitir">Omitir</button>-->
-                    </div>
-                </div>
-            </div>                
-        </div>
-
-        <div class="container padding-container">
-
-            <div id="contain-log" style="display: none;">
-                <center>
-                    
-                    <h1 id="nombre-login"></h1>
-                    <h4>Tu sesión está iniciada</h4>
-
-                    <button class="btn-negro" id="btncontinuar">CONTINUAR</button>
-
-                    <div class="row">
-                    <div class="col-md-12">
-                        <hr style="    border: 1px solid #dadada; ">
-                    </div>
-                </div>
-
-                </center>
-                
-            </div>
-
-            <form id="form-login">
-                <div class="row" >
-                    <div class="col-md-12">
-                        <input type="text" class="form-control input-control" name="" placeholder="Email / Identificación" id="txtemail_login" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="password" class="form-control input-control" name="" placeholder="Contraseña" id="txtpassword_login" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="submit" id="btn-ingresar" class="pull-right btn-negro" value="INGRESAR">
-                    </div>
-                </div>
-
-            </form>
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="pull-right btn-transparent" onclick="ir_lost_pass()">Olvidaste tu Contraseña</button>
-                </div>
-            </div>
-            
-            <!--
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn-redessociales">Acceder con Facebook</button>   
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn-redessociales">Acceder con Twitter</button>   
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn-redessociales">Acceder con Google</button>   
-                </div>
-            </div>
-
-            -->
-
-            <div class="row">
-                <div class="col-md-12">
-                    <hr style="    border: 1px solid #dadada; ">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="h3-page">No estás Registrado?</h3>
-                </div>
-            </div>
-
-            <div class="row margin-top-15">
-                <div class="col-md-12">
-                    <button class="btn-amarillo" onclick="ir_registro()">REGISTRARSE</button>
-                </div>
-            </div>
-
-            <div class="row margin-top-15">
-                <div class="col-md-12">
-                    <p class="texto-gris-app">Al registrarte, aceptas nuestras <br />Condiciones y Políticas de Privacidad</p>
-                </div>
-            </div>
-
-
-            
-            
-
-
-        </div>
-    </div>
-    <!-- fin -->
+    
 
     <!-- PAGINA 2 Lost Password -->
     <div data-role="page" id="pagina-lost-password" class="pg-indv">

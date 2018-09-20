@@ -140,11 +140,11 @@ function inicial(){
           password_login=""+localStorage.passwordusuario;
           ajax_login(email_login,password_login,"0");
       }else{
-         $("#mensajes-registro").modal("show");
+         //$("#mensajes-registro").modal("show");
       }
 
     }else{
-         $("#mensajes-registro").modal("show");
+         //$("#mensajes-registro").modal("show");
     }
 
     cargar_tipo_aptos();
@@ -252,6 +252,7 @@ function ajax_login(email_log,password_log,tip){
 
             if(datos_tipousuario[j].idcategoria=="3"){
               $("#cv_propietarios").show();
+               $("#cv_pagosonline").show();
             }
 
             if(datos_tipousuario[j].idcategoria=="1"){
@@ -1322,11 +1323,13 @@ function cargar_deptos_inmuebles(){
       cadena_depto+='<option value="0">.::Departamento::.</option>';
       datos_depto=jQuery.parseJSON(data);
       for(var i=0;i<datos_depto.length;i++){
-         cadena_depto+='<option value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
+         cadena_depto+='<option selected value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
       }
 
       $("#depto_filtro_inmueble").html(cadena_depto);
+      $('#depto_filtro_inmueble').selectmenu('refresh');
 
+      cargar_ciudades_bydepto(11009);
     }
         
     });
@@ -1355,6 +1358,7 @@ function cargar_ciudades_bydepto(iddepto){
       }
 
       $("#ciudad_filtro_inmueble").html(cadena_ciudad);
+      $('#ciudad_filtro_inmueble').selectmenu('refresh');
 
     }
         
@@ -1388,6 +1392,9 @@ function cargar_zonas_byciudad(idciudad){
       }
 
       $("#zona_filtro_inmueble").html(cadena_zonas);
+
+      $('#zona_filtro_inmueble').selectmenu('refresh');
+
 
       id_ciudad_sel=idciudad;
       cargar_barrios_byzonas(0);
@@ -1427,6 +1434,7 @@ function cargar_barrios_byzonas(idzona){
       }
 
       $("#barrios_filtro_inmueble").html(cadena_barrios);
+      $('#barrios_filtro_inmueble').selectmenu('refresh');
 
     }
         
@@ -1793,7 +1801,6 @@ function get_noticias(){
           }
     });
 
-
   request.done(function(msg) {            
     //var obj = jQuery.parseJSON(msg);       
       if(msg.status=="ok"){
@@ -1840,6 +1847,13 @@ function get_noticias(){
             cadena_asesores+='<a class="btn btn-default" href="mailto:'+obj_asesores[i].emailAsesor+'" style="width: 100%; margin-bottom: 10px;">';
             cadena_asesores+='<strong>Email:</strong> '+obj_asesores[i].emailAsesor+'';
             cadena_asesores+='</a>';
+
+            cadena_asesores+='<a class="btn btn-default" href="javascript:abrir_tarjeta_asesor(&#39;'+obj_asesores[i].urlAsesor+'&#39;)" style="width: 100%; margin-bottom: 10px;">';
+            cadena_asesores+='<strong>Ver Tarjeta</strong>';
+            cadena_asesores+='</a>';
+
+
+            
             cadena_asesores+='</div>';
             
            
@@ -1864,6 +1878,12 @@ function get_noticias(){
 function abrir_whatsapp_inmueble(num_wha){
   window.open("https://api.whatsapp.com/send?phone=57"+num_wha+"&text=Hola%20me%20podrías%20dar%20más%20información%20acerca%20del%20inmueble%20con%20código%20"+codigo_inmueble_sel,'_system');
 }
+
+
+function abrir_tarjeta_asesor(url){
+  window.open(url,'_system');
+}
+
 
 function get_noticias_detalle(idnoticia){
    var request = $.ajax({
