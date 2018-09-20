@@ -1323,7 +1323,7 @@ function cargar_deptos_inmuebles(){
       cadena_depto+='<option value="0">.::Departamento::.</option>';
       datos_depto=jQuery.parseJSON(data);
       for(var i=0;i<datos_depto.length;i++){
-         cadena_depto+='<option selected value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
+         cadena_depto+='<option value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
       }
 
       $("#depto_filtro_inmueble").html(cadena_depto);
