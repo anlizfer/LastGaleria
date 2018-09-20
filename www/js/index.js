@@ -1292,8 +1292,8 @@ function cargar_tipo_aptos(){
 
       $("#tipoinmueble_filtro_inmueble").html(cadena_tipoinmb);
 
-      cargar_deptos_inmuebles();
-
+      //cargar_deptos_inmuebles();
+      cargar_ciudades_bydepto(11009);
     }
         
     });
@@ -1323,13 +1323,13 @@ function cargar_deptos_inmuebles(){
       cadena_depto+='<option value="0">.::Departamento::.</option>';
       datos_depto=jQuery.parseJSON(data);
       for(var i=0;i<datos_depto.length;i++){
-         cadena_depto+='<option selected value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
+         cadena_depto+='<option value="'+datos_depto[i].id+'">'+datos_depto[i].nombre+'</option>';
       }
 
       $("#depto_filtro_inmueble").html(cadena_depto);
-      $('#depto_filtro_inmueble').selectmenu('refresh');
+     // $('#depto_filtro_inmueble').selectmenu('refresh');
 
-      cargar_ciudades_bydepto(11009);
+      //cargar_ciudades_bydepto(11009);
     }
         
     });
@@ -1358,7 +1358,7 @@ function cargar_ciudades_bydepto(iddepto){
       }
 
       $("#ciudad_filtro_inmueble").html(cadena_ciudad);
-      $('#ciudad_filtro_inmueble').selectmenu('refresh');
+      //$('#ciudad_filtro_inmueble').selectmenu('refresh');
 
     }
         
@@ -1393,7 +1393,7 @@ function cargar_zonas_byciudad(idciudad){
 
       $("#zona_filtro_inmueble").html(cadena_zonas);
 
-      $('#zona_filtro_inmueble').selectmenu('refresh');
+      //$('#zona_filtro_inmueble').selectmenu('refresh');
 
 
       id_ciudad_sel=idciudad;
@@ -1434,7 +1434,7 @@ function cargar_barrios_byzonas(idzona){
       }
 
       $("#barrios_filtro_inmueble").html(cadena_barrios);
-      $('#barrios_filtro_inmueble').selectmenu('refresh');
+      //$('#barrios_filtro_inmueble').selectmenu('refresh');
 
     }
         
@@ -1456,7 +1456,8 @@ var datos_inmuebles_listado=Object();
 function cargar_inmuebles_destacados_api(tip,pag){
 
     var operador_filtro_inmueble=""+$("#operador_filtro_inmueble").val();
-    var depto_filtro_inmueble=""+$("#depto_filtro_inmueble").val();
+    //var depto_filtro_inmueble=""+$("#depto_filtro_inmueble").val();
+    var depto_filtro_inmueble="11009";
     var ciudad_filtro_inmueble=""+$("#ciudad_filtro_inmueble").val();
     var zona_filtro_inmueble=""+$("#zona_filtro_inmueble").val();
     var barrios_filtro_inmueble=""+$("#barrios_filtro_inmueble").val();
