@@ -1834,7 +1834,7 @@ function get_noticias(){
           var cadena_asesores="";
           for(var i=0;i<obj_asesores.length;i++){
             
-            cadena_asesores+='<div style="padding-top: 15px; padding-bottom: 15px; margin-bottom:10px; width: 100%; border: 1px solid #ccc; border-radius: 8px; text-align: center; background-position: center; background-size: cover; padding-left: 40px; padding-right: 40px; background-color: #fff;">';
+            cadena_asesores+='<div style="padding-top: 15px; padding-bottom: 15px; margin-bottom:10px; width: 100%; border: 1px solid #ccc; border-radius: 8px; text-align: center; background-position: center; background-size: cover; padding-left: 5px; padding-right: 5px; background-color: #fff;">';
             cadena_asesores+='<div style="width: 100%;  height: 300px; margin-bottom: 10px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url(http://galeria.aedigital.co/images/asesores/'+obj_asesores[i].imagenasesor+')">';
             cadena_asesores+='</div> ';
             cadena_asesores+='<h3>'+obj_asesores[i].nombreAsesor+'</h3>';
@@ -1844,7 +1844,7 @@ function get_noticias(){
             cadena_asesores+='<a class="btn btn-default" href="tel:'+obj_asesores[i].whatsappAsesor+'" style="width: 100%; margin-bottom: 10px;">';
             cadena_asesores+='<strong>Llamar:</strong> '+obj_asesores[i].whatsappAsesor+'';
             cadena_asesores+='</a>';
-            cadena_asesores+='<a class="btn btn-default" href="mailto:'+obj_asesores[i].emailAsesor+'" style="width: 100%; margin-bottom: 10px;">';
+            cadena_asesores+='<a class="btn btn-default" href="mailto:'+obj_asesores[i].emailAsesor+'" style="width: 100%; margin-bottom: 10px; font-size: 12px;">';
             cadena_asesores+='<strong>Email:</strong> '+obj_asesores[i].emailAsesor+'';
             cadena_asesores+='</a>';
 
