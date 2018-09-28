@@ -1858,10 +1858,15 @@ function get_noticias(){
             cadena_asesores+='<strong>Email:</strong> '+obj_asesores[i].emailAsesor+'';
             cadena_asesores+='</a>';
 
-            cadena_asesores+='<a class="btn btn-default" href="javascript:abrir_tarjeta_asesor(&#39;'+obj_asesores[i].urlAsesor+'&#39;)" style="width: 100%; margin-bottom: 10px;">';
-            cadena_asesores+='<strong>Ver Tarjeta</strong>';
-            cadena_asesores+='</a>';
 
+            if(obj_asesores[i].urlAsesor!=""){
+
+            
+              cadena_asesores+='<a class="btn btn-default" href="javascript:abrir_tarjeta_asesor(&#39;'+obj_asesores[i].urlAsesor+'&#39;)" style="width: 100%; margin-bottom: 10px;">';
+              cadena_asesores+='<strong>Ver Tarjeta</strong>';
+              cadena_asesores+='</a>';
+
+            }
 
             
             cadena_asesores+='</div>';
