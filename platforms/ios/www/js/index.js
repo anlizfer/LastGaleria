@@ -964,6 +964,14 @@ function abrir_form_detalleinmueble(id_inmueble){
       $("#administracion_indiv").html("$"+dato_inmueble.Administracion);
       $("#descripcion_inmueble").html(""+dato_inmueble.descripcionlarga);
 
+      if(dato_inmueble.oper=="Arriendo"){
+          tipo_oper="1";
+      }else{
+          tipo_oper="2";
+      }
+
+      get_noticias();
+
 
       //https://www.galeriainmobiliaria.com.co/apartaestudios-en-arriendo-bucaramanga-cabecera_del_llano-704-4052
 
@@ -1791,13 +1799,15 @@ $(".btnnotificaciones").click(function(){
 
 var obj_asesores=new Object();
 
-
+var tipo_oper="1";
 function get_noticias(){
    var request = $.ajax({
     url: servidor_ws+"/get_notificaciones.php",
     type: "POST",
     data: {            
-            idusuario:"1"
+            idusuario:"1",
+            tipoasesor:""+tipo_oper
+
           }
     });
 
