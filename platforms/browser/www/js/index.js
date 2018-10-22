@@ -1262,16 +1262,6 @@ function abrir_compartir_listado(cod_inmueble){
 
 
 
-var video_inmueble_indiv="";
-$("#btnvideo").click(function() {
-   $("#video-inmueble").modal("show");
-
-   var video_inmueble='<iframe class="embed-responsive-item" src="'+video_inmueble_indiv+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-
-   $("#video-youtube-embed").html(video_inmueble);
-
-});
-
 
 
 
