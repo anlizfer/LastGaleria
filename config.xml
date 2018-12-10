@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.galeriainmobiliaria" version="1.0.32" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>GaleriaInmobiliaria</name>
+<widget id="com.galeriainmobiliaria.arriendosenbucaramanga" version="1.0.34" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>GaleriaInmobiliaria-ArriendosEnBucaramanga</name>
     <description>
         Aplicación para galería inmobiliaria
     </description>
