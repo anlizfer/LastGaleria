@@ -69,7 +69,7 @@ document.addEventListener('deviceready', function () {
 
 
 var puerto_servidor="";
-var servidor_ws="http://galeria.aedigital.co"+puerto_servidor;
+var servidor_ws="https://galeria.aedigital.co"+puerto_servidor;
 
 var zoom_mapa=13;
 
@@ -1835,7 +1835,7 @@ function get_noticias(){
           for(var i=0;i<obj_asesores.length;i++){
             
             cadena_asesores+='<div style="padding-top: 15px; padding-bottom: 15px; margin-bottom:10px; width: 100%; border: 1px solid #ccc; border-radius: 8px; text-align: center; background-position: center; background-size: cover; padding-left: 5px; padding-right: 5px; background-color: #fff;">';
-            cadena_asesores+='<div style="width: 100%;  height: 300px; margin-bottom: 10px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url(http://galeria.aedigital.co/images/asesores/'+obj_asesores[i].imagenasesor+')">';
+            cadena_asesores+='<div style="width: 100%;  height: 300px; margin-bottom: 10px; background-position: center; background-size: cover; background-repeat: no-repeat; background-image: url('+servidor_ws+'/images/asesores/'+obj_asesores[i].imagenasesor+')">';
             cadena_asesores+='</div> ';
             cadena_asesores+='<h3>'+obj_asesores[i].nombreAsesor+'</h3>';
             cadena_asesores+='<a class="btn btn-default" href="javascript:abrir_whatsapp_inmueble('+obj_asesores[i].whatsappAsesor+')" style="width: 100%; margin-bottom: 10px;">';
@@ -2089,6 +2089,7 @@ function get_convenios(){
     //var obj = jQuery.parseJSON(msg);       
       if(msg.status=="ok"){
           
+          
           obj_convenio=msg.datos;
 
           var cadena_convenios="";
@@ -2168,6 +2169,10 @@ function abrir_form_detalleconvenio(idconvenio, indice){
 
     $.mobile.changePage("#pagina-detalle-convenio",{transition:transicion,changeHash: true});
     var imagen_convenio=""+servidor_ws+"/convenios/"+obj_convenio[indice].imagenCatalogo;
+    var imagen_convenio2=""+servidor_ws+"/convenios/"+obj_convenio[indice].imagenCatalogo2;
+    var imagen_convenio3=""+servidor_ws+"/convenios/"+obj_convenio[indice].imagenCatalogo3;
+    var imagen_convenio4=""+servidor_ws+"/convenios/"+obj_convenio[indice].imagenCatalogo4;
+
     var titulo_convenio=""+obj_convenio[indice].nombreProducto;
     var no_convenio=""+obj_convenio[indice].IdProducto;
     var descripcion_convenio=""+obj_convenio[indice].descripcionProducto;
@@ -2186,6 +2191,23 @@ function abrir_form_detalleconvenio(idconvenio, indice){
     idproducto=""+obj_convenio[indice].IdProducto;
 
     $("#galeria-convenio-detalle").css("background-image","url("+imagen_convenio+")"); 
+
+
+    var cadena_fotos="";
+    cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio+'&#39;)"></div>';
+
+    if(obj_convenio[indice].imagenCatalogo2!="" && obj_convenio[indice].imagenCatalogo2!=undefined){
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio2+'&#39;)"></div>';
+    }    
+    if(obj_convenio[indice].imagenCatalogo3!=""  && obj_convenio[indice].imagenCatalogo3!=undefined){
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio3+'&#39;)"></div>';
+    }
+    if(obj_convenio[indice].imagenCatalogo4!=""  && obj_convenio[indice].imagenCatalogo4!=undefined){
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio4+'&#39;)"></div>';
+    }
+
+    $("#listado_fotos_convenios").html(cadena_fotos);
+
     $("#detalle_nombre_convenio").html(titulo_convenio);
     $(".no_convenio").html(""+no_convenio);
     $("#descripcion_convenio").html(""+descripcion_convenio);
@@ -2202,6 +2224,10 @@ function abrir_form_detalleconvenio(idconvenio, indice){
         cargar_mapa_convenio(obj_convenio[indice].latitudFabricante,obj_convenio[indice].longitudFabricante);
     }
     
+}
+
+function cambioimagen(imagen_convenio){
+   $("#galeria-convenio-detalle").css("background-image","url("+imagen_convenio+")"); 
 }
 
 
