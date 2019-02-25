@@ -938,7 +938,7 @@ function abrir_form_detalleinmueble(id_inmueble){
   /*$.mobile.changePage("#pagina-detalle-inmueble",{transition:transicion,changeHash: true});
   cargar_mapa_individual();*/
    $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v2/inmueble/codInmueble/'+id_inmueble,
+    url: 'http://simi-api.com/ApiSimiweb/response/v2/inmueble/codInmueble/'+id_inmueble,
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1269,7 +1269,7 @@ var datos_tipo_apto=new Object();
 
 function cargar_tipo_aptos(){
   $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/tipoInmuebles/',
+    url: 'http://simi-api.com/ApiSimiweb/response/tipoInmuebles/unique/1',
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1305,7 +1305,7 @@ var datos_depto=new Object();
 
 function cargar_deptos_inmuebles(){
   $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v2/departamento/',
+    url: 'http://simi-api.com/ApiSimiweb/response/v2/departamento/unique/1',
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1336,7 +1336,7 @@ function cargar_deptos_inmuebles(){
 var datos_ciudad=new Object();
 function cargar_ciudades_bydepto(iddepto){
   $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v2/ciudad/idDepartamento/'+iddepto,
+    url: 'http://simi-api.com/ApiSimiweb/response/v2/ciudad/idDepartamento/'+iddepto,
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1370,7 +1370,7 @@ function cargar_zonas_byciudad(idciudad){
 
 
   $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v2/zonas/idCiudad/'+idciudad,
+    url: 'http://simi-api.com/ApiSimiweb/response/v2/zonas/idCiudad/'+idciudad,
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1412,7 +1412,7 @@ function cargar_barrios_byzonas(idzona){
 
 
   $.ajax({
-    url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v2/barrios/idCiudad/'+id_cid+'/idZona/'+idzona,
+    url: 'http://simi-api.com/ApiSimiweb/response/v2/barrios/idCiudad/'+id_cid+'/idZona/'+idzona,
     type: 'GET',
     beforeSend: function (xhr) {
     xhr.setRequestHeader(
@@ -1547,12 +1547,12 @@ function cargar_inmuebles_destacados_api(tip,pag){
     cadena_filtro+="garajes/"+garaje_filtro_inmueble+"/";
   
    
-    var cadena_filtros='http://www.simiinmobiliarias.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro;
+    var cadena_filtros='http://simi-api.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro;
 
     
 
     $.ajax({
-      url: 'http://www.simiinmobiliarias.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro,
+      url: 'http://simi-api.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro,
       type: 'GET',
       beforeSend: function (xhr) {
       xhr.setRequestHeader(
@@ -2088,6 +2088,7 @@ function get_convenios(){
   request.done(function(msg) {            
     //var obj = jQuery.parseJSON(msg);       
       if(msg.status=="ok"){
+          
           
           obj_convenio=msg.datos;
 
