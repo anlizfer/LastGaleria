@@ -36,8 +36,8 @@
     <plugin name="cordova-plugin-vibration" spec="~2.1.3" />
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.1" />
-
-    <icon src="www/res/icon/ios/icon.png" platform="ios" width="180" height="180" />
+   
+    <icon src="www/res/icon/ios/icon.png" />
 
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
