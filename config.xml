@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.galeriainmobiliaria.arriendosenbucaramanga" version="1.0.39" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.galeriainmobiliaria.arriendosenbucaramanga" version="1.0.40" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>GaleriaInmobiliaria-ArriendosEnBucaramanga</name>
     <description>
         Aplicación para galería inmobiliaria
@@ -77,7 +77,8 @@
         <icon height="58" platform="ios" src="www/res/icon/ios/icon-29@2x.png" width="58" />
         <icon height="87" platform="ios" src="www/res/icon/ios/icon-29@3x.png" width="87" />
     </platform>
-    <!--<platform name="wp8">
+    <!--
+    <platform name="wp8">
         <icon height="99" platform="wp8" src="www/res/icon/wp8/ApplicationIcon.png" width="99" />
         <icon height="159" platform="wp8" src="www/res/icon/wp8/Background.png" width="159" />
         <splash height="1280" platform="wp8" src="www/res/screen/wp8/screen-portrait.jpg" width="768" />
