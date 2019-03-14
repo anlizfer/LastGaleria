@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.galeriainmobiliaria.arriendosenbucaramanga" version="1.0.41" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.galeriainmobiliaria.arriendosenbucaramanga" version="1.0.40" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>GaleriaInmobiliaria-ArriendosEnBucaramanga</name>
     <description>
         Aplicación para galería inmobiliaria
@@ -12,16 +12,7 @@
     <preference name="android-minSdkVersion" value="17" />
     <preference name="android-targetSdkVersion" value="26" />
 
-
-    <hook src="resources/script/before-test-runner.js" type="before_prepare" />
-    <hook src="resources/script/after-test-runner.js" type="after_prepare" />
-    <hook src="resources/script/copy-android-push-icon.js" type="before_build" />
-    <hook src="resources/script/add-version.js" type="before_build" />
-    <hook src="resources/script/remove-version.js" type="after_compile" />
-    <preference name="StatusBarStyle" value="default" />
-    <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="DisallowOverscroll" value="true" />
-    <access origin="*" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
 
 
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
@@ -50,8 +41,6 @@
    
     <icon src="www/res/icon/ios/icon.png" />
 
-
-
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
@@ -72,9 +61,14 @@
         <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <platform name="ios">        
-        <preference name="Orientation" value="all" />
-        <preference name="AutoHideSplashScreen" value="false" />
+    <platform name="ios">    
+
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+            <string>We are using the Photo Library for show houses and apartments.</string>
+        </edit-config>
+        
 
         <icon height="57" platform="ios" src="www/res/icon/ios/icon-57.png" width="57" />
         <icon height="114" platform="ios" src="www/res/icon/ios/icon-57-@2x.png" width="114" />
@@ -93,10 +87,6 @@
         <icon height="58" platform="ios" src="www/res/icon/ios/icon-29-@2x.png" width="58" />
         <icon height="87" platform="ios" src="www/res/icon/ios/icon-29-@3x.png" width="87" />
     </platform>
-
-    <engine name="android" spec="~6.4.0" />
-    <engine name="ios" spec="^4.5.3" />
-
     <!--
     <platform name="wp8">
         <icon height="99" platform="wp8" src="www/res/icon/wp8/ApplicationIcon.png" width="99" />
@@ -129,11 +119,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
+    </platform>    
    
    
 </widget>
