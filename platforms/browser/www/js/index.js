@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+/*var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -55,7 +55,12 @@ var app = {
     receivedEvent: function(id) {
        
     }
-};
+};*/
+
+
+$( document ).ready(function() {
+    inicial();
+});
 
 // Add to index.js or the first page that loads with your app.
 // For Intel XDK and please add this to your app.js.
@@ -274,7 +279,7 @@ function ajax_login(email_log,password_log,tip){
 
           $("#nombre-login").html(""+datos_usuario[0].nombreusuario+" "+datos_usuario[0].apellidousuario);
 
-          enviar_tag(tipousuario);//ASIGNA EL TAG tipousuario=1 al usuario en onesignal
+          //enviar_tag(tipousuario);//ASIGNA EL TAG tipousuario=1 al usuario en onesignal //android
 
                     
 
@@ -2402,5 +2407,5 @@ function cargar_mapa_convenio_listado(){
 
 
 function enviar_tag(idtipusu){
-    window.plugins.OneSignal.sendTag("tipousuario", ""+idtipusu);
+    //window.plugins.OneSignal.sendTag("tipousuario", ""+idtipusu); // android
 }
