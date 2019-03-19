@@ -2202,13 +2202,13 @@ function abrir_form_detalleconvenio(idconvenio, indice){
     cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio+'&#39;)"></div>';
 
     if(obj_convenio[indice].imagenCatalogo2!="" && obj_convenio[indice].imagenCatalogo2!=undefined){
-      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio2+'&#39;)"></div>';
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio2+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio2+'&#39;)"></div>';
     }    
     if(obj_convenio[indice].imagenCatalogo3!=""  && obj_convenio[indice].imagenCatalogo3!=undefined){
-      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio3+'&#39;)"></div>';
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio3+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio3+'&#39;)"></div>';
     }
     if(obj_convenio[indice].imagenCatalogo4!=""  && obj_convenio[indice].imagenCatalogo4!=undefined){
-      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio4+'&#39;)"></div>';
+      cadena_fotos+='<div style="display:inline-block; margin-right:4%;  width:20%; height:60px; border-radius:5px;  background-image:url('+imagen_convenio4+'); background-size:cover; background-position:center;cursor:pointer;" onclick="cambioimagen(&#39;'+imagen_convenio4+'&#39;)"></div>';
     }
 
     $("#listado_fotos_convenios").html(cadena_fotos);
