@@ -652,6 +652,10 @@ var roles="";
 
 
 function enviar_formulario_registro(){
+
+
+  $("#btnregistrar").prop("disabled",true);
+
   txtemail_registro=""+$("#txtemail_registro").val();
   txtnombre_registro=""+$("#txtnombre_registro").val();
   txtapellido_registro=""+$("#txtapellido_registro").val();
@@ -717,17 +721,21 @@ function enviar_formulario_registro(){
           $(".info-login").show();
           $(".nombre-usuario-registrado").html(""+txtnombre_registro);
 
+          $("#btnregistrar").prop("disabled",false);
+
           
           ir_menu_principal();
 
       }else{
           abrir_mensajes("Error",msg.mensaje);
+          $("#btnregistrar").prop("disabled",false);
       }
   });     
 
     //respuesta si falla
     request.fail(function(jqXHR, textStatus) {
        abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+       $("#btnregistrar").prop("disabled",false);
     });
   
 }
