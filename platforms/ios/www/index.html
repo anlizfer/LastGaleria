@@ -220,7 +220,7 @@
             }
 
             .item-menu{
-                width: 100%; height:220px; border: 1px solid #ccc; border-radius:5px; background: #fff; margin-bottom: 20px;
+                width: 100%; height:232px; border: 1px solid #ccc; border-radius:5px; background: #fff; margin-bottom: 20px;
             }
 
             .image-item-menu{
@@ -2180,19 +2180,23 @@
 
         <div class="container padding-container" style="padding-top: 0px; float: left; width: 100% !important;">
             <form>                
-                <div class="row">
-                    <div class="col-xs-10" style="padding-right: 0px;" >
-                        <input type="text" class="form-control input-control"  id="txtbuscarconvenio" placeholder="Buscar Convenio">
-
+                <div class="row" style="margin-top: 18px;">
+                    <div class="col-xs-6" style="padding-right: 0px; padding-left: 0px;" >
+                        <input style="height: 45px;" type="text" class="form-control input-control"  id="txtbuscarconvenio" placeholder="Buscar Beneficio">
                     </div>
-                    <div class="col-xs-2"  style="padding-left: 0px;"  >
-                        <button class="btn btn-default" id="btnbuscarconvenio" style="height: 38px; width: 38px; background-color: #f8ea26 !important;" type="button" >
-                            <img src="assets/img/icono-buscar.png" style="width: 17px;">
+                    <div class="col-xs-6" style="padding-right: 0px;" >
+                        <select style="height: 45px;" id="txtcategoria">
+                            
+                        </select>
+                    </div>
+                    <div class="col-xs-12"  style="padding-left: 0px; padding-right: 0px;"  >
+                        <button class="btn btn-default" id="btnbuscarconvenio" style="height: 38px; width: 100%; background-color: #f8ea26 !important;" type="button" >
+                            Buscar <img src="assets/img/icono-buscar.png" style="width: 17px;">
                         </button>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-top: 25px;">
                     <div class="col-xs-6" >
                         <!--<a class="btngaleria" href="#" style="float:left;">
                             <img src="assets/img/boton_filtro.png" style="width: 30px; ">                             
@@ -2228,7 +2232,7 @@
                 </div>
 
 
-                <h5>Convenios</h5>
+                <h3>Beneficios</h3>
                 
                 <div class="contain-inmuebles" id="listado-convenios">
 

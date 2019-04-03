@@ -1801,6 +1801,7 @@ $(".btnnotificaciones").click(function(){
 
 
 var obj_asesores=new Object();
+var obj_categorias=new Object();
 
 var tipo_oper="1";
 function get_noticias(){
@@ -1820,6 +1821,15 @@ function get_noticias(){
           
           var objdata=msg.datos;
           obj_asesores=msg.asesores;
+          obj_categorias=msg.categorias;
+
+          var cadena_cat="";
+          cadena_cat+='<option value="">Todos</option>';
+          for(var i=0;i<obj_categorias.length;i++){
+            cadena_cat+='<option value="'+obj_categorias[i].IdCategoriabeneficio+'">'+obj_categorias[i].NombreCategoria+'</option>';
+          }
+          $("#txtcategoria").html(cadena_cat);
+          $("#txtcategoria").selectmenu("refresh");
 
           getWhatsapp();
 
@@ -2087,13 +2097,15 @@ $("#btnbuscarconvenio").click(function(){
 function get_convenios(){
 
   var nombreconvenio=$("#txtbuscarconvenio").val();
+  var categoria=$("#txtcategoria").val();
    var request = $.ajax({
     url: servidor_ws+"/get_convenios.php",
     type: "POST",
     data: {            
             idusuario:""+idusuario,
             nombreconvenio:""+nombreconvenio,
-            tipousuario:""+tipousuario
+            tipousuario:""+tipousuario,
+            categoria:""+categoria
           }
     });
 
@@ -2142,7 +2154,8 @@ function get_convenios(){
               cadena_convenios+='     <div class="container" style="padding: 0px;" >';
               cadena_convenios+='         <div class="col-xs-12" style="padding: 0px;" onclick="abrir_form_detalleconvenio('+obj_convenio[i].IdProducto+','+i+')">';
               cadena_convenios+='             <p class="subtitulo-item-menu" style="margin-top: 5px; font-weight:bold;">'+obj_convenio[i].nombreProducto+'</p>';
-              cadena_convenios+='             <p class="subtitulo-item-menu" style="margin-top: 1px; font-size:11px; ">'+obj_convenio[i].razonsocialFabricante+'</p>';
+              cadena_convenios+='             <p class="subtitulo-item-menu" style="margin-top: 1px; font-size:14px; ">'+obj_convenio[i].razonsocialFabricante+'</p>';
+              cadena_convenios+='             <p class="subtitulo-item-menu" style="margin-top: 1px; font-size:11px; ">'+obj_convenio[i].NombreCategoria+'</p>';
               cadena_convenios+='         </div>';
              
               cadena_convenios+='     </div>';
