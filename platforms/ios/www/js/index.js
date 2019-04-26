@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-/*var app = {
+var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -55,11 +55,11 @@
     receivedEvent: function(id) {
        
     }
-};*/
+};
 
 
 $( document ).ready(function() {
-    inicial();
+    //inicial();
 });
 
 // Add to index.js or the first page that loads with your app.
@@ -252,15 +252,18 @@ function ajax_login(email_log,password_log,tip){
 
           idusuario=""+datos_usuario[0].idusuario;
 
+
+          console.log(datos_tipousuario);
+
           for(var j=0;j<datos_tipousuario.length;j++){
             tipousuario+=""+datos_tipousuario[j].idcategoria+",";
 
-            if(datos_tipousuario[j].idcategoria=="3"){
+            if(""+datos_tipousuario[j].idcategoria=="3"){
               $("#cv_propietarios").show();
                $("#cv_pagosonline").show();
             }
 
-            if(datos_tipousuario[j].idcategoria=="1"){
+            if(""+datos_tipousuario[j].idcategoria=="1"){
               $("#cv_arrendatarios").show();
               $("#cv_pagosonline").show();
             }
@@ -318,7 +321,7 @@ $( "#btnomitir" ).click(function() {
     ir_menu_principal();
 });
 
-function ir_menu_principal(tipo_usuario){
+function ir_menu_principal(){
 
  
 
@@ -833,7 +836,7 @@ $(".btncerrar_vert").click(function(){
       $("#contain-log").hide();
 
       $("#nombre-login").html("");
-
+      $.mobile.changePage("#pagina-login",{transition:transicion,changeHash: true});
      console.log("Cerrar Sesión");
 
 });
@@ -938,6 +941,10 @@ $( "#btnlistadoinmueble" ).click(function() {
 //BOTON DE INMUEBLE FAVORITO
 
 
+
+
+
+
 var dato_inmueble=Object();
  var ruta_inmueble="";
 
@@ -947,6 +954,8 @@ function abrir_form_detalleinmueble(id_inmueble){
 
   codigo_inmueble_sel=id_inmueble;
 
+  $("#cargando-modal").modal("show");
+  $('#cargando-modal').modal({backdrop: 'static',keyboard: false});
   
   /*$.mobile.changePage("#pagina-detalle-inmueble",{transition:transicion,changeHash: true});
   cargar_mapa_individual();*/
@@ -976,6 +985,8 @@ function abrir_form_detalleinmueble(id_inmueble){
       $("#valor_canon_indiv").html("$"+dato_inmueble.precio);
       $("#administracion_indiv").html("$"+dato_inmueble.Administracion);
       $("#descripcion_inmueble").html(""+dato_inmueble.descripcionlarga);
+
+      $("#cargando-modal").modal("hide");
 
       if(dato_inmueble.oper=="Arriendo"){
           tipo_oper="1";
@@ -1018,8 +1029,12 @@ function abrir_form_detalleinmueble(id_inmueble){
 
       $("#items_inmueble_indiv").html(""+cadena_items_inmueble);
 
-
-      cargar_mapa_individual(dato_inmueble.latitud,dato_inmueble.longitud);
+      $("#mapa-indivual").hide();
+      if(dato_inmueble.latitud!="" && dato_inmueble.longitud!=""){
+        $("#mapa-indivual").show();
+        cargar_mapa_individual(dato_inmueble.latitud,dato_inmueble.longitud);
+      }
+      
       
       
 
@@ -1258,8 +1273,39 @@ $( "#btn-favorito" ).click(function() {
 });
 
 $( "#btncompartir_detalle" ).click(function() {
-     $("#compartir-inmueble").modal("show");
+    get_codigo_inmueble(codigo_inmueble_sel);
+
 });
+
+
+var url_compartir_inmueble="";
+
+function get_codigo_inmueble(codigo_inmueble){
+  var request = $.ajax({
+    url: "http://ec2-18-191-185-90.us-east-2.compute.amazonaws.com/get_url_share_app.php",
+    type: "POST",
+    data: {
+            codigo_simi:""+codigo_inmueble
+          }
+    });
+
+    request.done(function(msg) {    
+      url_compartir_inmueble=msg;
+      ruta_inmueble=url_compartir_inmueble;
+      $("#compartir-inmueble").modal("show");
+
+  });     
+
+    //respuesta si falla
+    request.fail(function(jqXHR, textStatus) {
+       abrir_mensajes("Error","No se ha podido conectar con el servidor, revise su conexión a internet y pruebe nuevamente.");
+    });
+}
+
+
+
+
+
 
 
 $(".btncompartir_listado").click(function() {
@@ -1269,8 +1315,9 @@ $(".btncompartir_listado").click(function() {
 
 
 function abrir_compartir_listado(cod_inmueble){
-  ruta_inmueble=encodeURIComponent("https://www.simiinmobiliarias.com/iframeNvo/details_properties.php?dt="+cod_inmueble+"&inmo=704&typebox=1&numbox=3&viewtitlesearch=1&titlesearch=Buscador+de+Inuebles&colortitlesearch=FFFFFF&bgtitlesearch=0076BD&secondct=0076BD&primaryc=0076BD&primaryct=ffff&token=nfeQK4vGWkbX8sPB3Xgoza93tAa9DpGE7kuaHVAw");
-  abrir_modal();
+  get_codigo_inmueble(cod_inmueble);
+  //ruta_inmueble=encodeURIComponent("https://www.simiinmobiliarias.com/iframeNvo/details_properties.php?dt="+cod_inmueble+"&inmo=704&typebox=1&numbox=3&viewtitlesearch=1&titlesearch=Buscador+de+Inuebles&colortitlesearch=FFFFFF&bgtitlesearch=0076BD&secondct=0076BD&primaryc=0076BD&primaryct=ffff&token=nfeQK4vGWkbX8sPB3Xgoza93tAa9DpGE7kuaHVAw");
+  //abrir_modal();
 }
 
 
@@ -1558,6 +1605,9 @@ function cargar_inmuebles_destacados_api(tip,pag){
     cadena_filtro+="banios/"+banos_filtro_inmueble+"/";
     cadena_filtro+="alcobas/"+habitaciones_filtro_inmueble+"/";
     cadena_filtro+="garajes/"+garaje_filtro_inmueble+"/";
+
+    $("#cargando-modal").modal("show");
+    $('#cargando-modal').modal({backdrop: 'static',keyboard: false});
   
    
     var cadena_filtros='http://simi-api.com/ApiSimiweb/response/v21/filtroInmueble/'+cadena_filtro;
@@ -1583,6 +1633,7 @@ function cargar_inmuebles_destacados_api(tip,pag){
 
           if(data=='"Sin resultados"'){
             $("#listado-imuebles").html("<center><h2>Sin resultados</h2></center>");
+            $("#cargando-modal").modal("hide");
             return;
           }
           
@@ -1714,6 +1765,9 @@ function cargar_inmuebles_destacados_api(tip,pag){
           }
 
 
+          $("#cargando-modal").modal("hide");
+
+
           if(txtbuscarinmueble=="" || ""+ciudad_filtro_inmueble=="null"){
             
              $('#pagination-demo').pagination({
@@ -1829,7 +1883,7 @@ function get_noticias(){
             cadena_cat+='<option value="'+obj_categorias[i].IdCategoriabeneficio+'">'+obj_categorias[i].NombreCategoria+'</option>';
           }
           $("#txtcategoria").html(cadena_cat);
-          $("#txtcategoria").selectmenu("refresh");
+          //$("#txtcategoria").selectmenu("refresh");
 
           getWhatsapp();
 
@@ -2245,8 +2299,11 @@ function abrir_form_detalleconvenio(idconvenio, indice){
 
     $("#qrconvenio").html('<img src="'+ruta_qr+'" style="width:100%;" >');
 
-    if(obj_convenio[indice].latitudFabricante!="" && obj_convenio[indice].longitudFabricante){
 
+    $("#mapa-indivual-convenio").hide();
+
+    if(""+obj_convenio[indice].latitudFabricante!="" && ""+obj_convenio[indice].longitudFabricante!=""){
+        $("#mapa-indivual-convenio").show();
         cargar_mapa_convenio(obj_convenio[indice].latitudFabricante,obj_convenio[indice].longitudFabricante);
     }
     
@@ -2398,7 +2455,9 @@ function cargar_mapa_convenio_listado(){
      
      for(var i=0;i<obj_convenio.length;i++){
 
-        console.log("Entra "+obj_convenio[i].latitudFabricante);
+        if(obj_convenio[i].latitudFabricante!="" && obj_convenio[i].longitudFabricante!=""){
+
+          
           var beachMarker;
           var myLatLng2 = new google.maps.LatLng(obj_convenio[i].latitudFabricante,obj_convenio[i].longitudFabricante);
       
@@ -2416,6 +2475,8 @@ function cargar_mapa_convenio_listado(){
           beachMarker.addListener('click', function(e) {              
               abrir_form_detalleconvenio(this.codigo_convenio, this.indice);
           });
+
+          }
 
 
      }
