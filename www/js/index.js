@@ -1721,9 +1721,9 @@ function cargar_inmuebles_destacados_api(tip,pag){
                 cadena_inmuebles+='<p class="codigo-item-menu">Código: '+datos_inmuebles_listado[k].Codigo_Inmueble+'</p>';
                 cadena_inmuebles+='</div>';
                 cadena_inmuebles+='<div class="col-xs-2" style="padding: 0px;">';
-                cadena_inmuebles+='<a href="javascript:abrir_compartir_listado(&#39;'+datos_inmuebles_listado[k].Codigo_Inmueble+'&#39;)" style="float: right; "  class="" >';
+                /*cadena_inmuebles+='<a href="javascript:abrir_compartir_listado(&#39;'+datos_inmuebles_listado[k].Codigo_Inmueble+'&#39;)" style="float: right; "  class="" >';
                 cadena_inmuebles+='<img src="assets/img/boton_compartir.png" class="icon-compartir"> ';
-                cadena_inmuebles+='</a>';
+                cadena_inmuebles+='</a>';*/
                 cadena_inmuebles+='</div>';
                 cadena_inmuebles+=' </div>';
                 cadena_inmuebles+='</div>';
